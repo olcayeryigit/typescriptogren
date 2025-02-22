@@ -26,6 +26,7 @@ export default function RootLayout({
       >
          <Head>
 
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Diğer global meta etiketler burada yer alabilir */}
       </Head>
