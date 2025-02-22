@@ -1,21 +1,72 @@
+
+
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', sans-serif;
+  box-sizing: border-box;
+  background-color:rgb(253, 255, 255) ;
+}
+
+@layer utilities {
+  .text-custom-gray {
+    color: #111827;
+  }
+  
+  .bg-custom-gray {
+    background-color: #111827;
+  }
+  
+  .border-custom-gray {
+    border-color: #111827;
+  }  
+  .text-custom-blue {
+    color: #7296b3;
+  }
+  
+  .bg-custom-blue {
+    background-color: #7296b3;
+  }
+  
+  .border-custom-blue {
+    border-color:#7296b3;
+  }  
+
+
+  .text-custom-blue-2 {
+    color: #4f8dbc;
+  }
+
+}
+
+
+.logo{
+  
+  font-family: "Trebuchet MS", sans-serif;
+  font-style: italic;
+  
+  
+}
+
+pre {
+  background-color: #000; /* Siyah arka plan */
+  color: #fff; /* Beyaz yazı */
+  font-family: "Fira Code", monospace; /* Kod editörü fontu */
+  padding: 16px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+code {
+  font-family: inherit;
+}
+
+.comment {
+  color: #00ff00; /* Yeşil yorum satırları */
 }

@@ -1,101 +1,101 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import React from "react";
+import Head from "next/head";
+import HomeCard from "@/components/homePage/HomeCard";
+import PageTitle from "@/components/common/PageTitle";
+import MainParagraph from "@/components/common/MainParagraph";
+import { Book, ListChecks, Layers, PenSquare, HelpCircle, Terminal, Globe } from "lucide-react";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
+  description:
+    "TypeScript öğren! Modern JavaScript’in avantajlarını keşfet, güçlü ve güvenli kod yaz. Dersler, projeler ve kaynaklarla becerilerini geliştir.",
+  keywords: [
+    "TypeScript", "TypeScript öğren", "TypeScript dersleri", "TypeScript kursu", "JavaScript",
+    "Yazılım geliştirme", "Frontend geliştirme", "Backend geliştirme", "Web geliştirme",
+    "Kodlama öğrenme", "React ile TypeScript", "Node.js ve TypeScript", "TypeScript projeleri"
+  ],
+
+  openGraph: {
+    title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
+    description:
+      "TypeScript öğrenmeye başla! Modern JavaScript’in avantajlarını keşfet, güvenli kod yaz ve projelerini geliştir.",
+    url: "https://www.typescriptogren.com/",
+    siteName: "TypeScript Öğren",
+    images: [
+      {
+        url: "https://www.typescriptogren.com/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "TypeScript Öğren – Modern JavaScript ve Güvenli Kodlama",
+      },
+    ],
+    locale: "tr_TR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@typescriptogren",
+    creator: "@typescriptogren",
+    title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
+    description:
+      "TypeScript öğrenmeye başla! Modern JavaScript’in avantajlarını keşfet, güçlü ve güvenli kod yaz.",
+    images: ["https://www.typescriptogren.com/images/og-image.jpg"],
+  },
+  other: {
+    "instagram:site": "https://www.instagram.com/typescriptogren",
+  },
+};
+
+const cardData = [
+  { href: "/dersler", icon: <Book size={40} />, title: "Dersler", description: "TypeScript diline dair temel ve ileri seviye derslerle, dilin tüm temellerini öğrenin." },
+  { href: "/quiz", icon: <ListChecks size={40} />, title: "Quizler", description: "Hazırladığımız quizlerle bilginizi test edin, eksik olduğunuz alanları keşfedin." },
+  { href: "/kaynaklar", icon: <Layers size={40} />, title: "Kaynaklar", description: "En iyi TypeScript kaynaklarını ve araçlarını bir arada bulabilirsiniz." },
+  { href: "/blog", icon: <PenSquare size={40} />, title: "Blog", description: "TypeScript ile ilgili güncel haberler, ipuçları ve en iyi uygulamaları okuyun." },
+  { href: "/sik-sorulan-sorular", icon: <HelpCircle size={40} />, title: "SSS", description: "Kullanıcılar tarafından sıkça sorulan sorulara göz atın." },
+  { href: "https://www.typescriptlang.org/play", icon: <Terminal size={40} />, title: "TypeScript Playground", description: "Kod yazmaya hemen başlayın! TypeScript Playground'da anında kod yazıp çalıştırabilirsiniz.", isExternal: true },
+  { href: "https://www.typescriptlang.org/", icon: <Globe size={40} />, title: "Resmi TypeScript Sitesi", description: "TypeScript'in resmi web sitesinde, dilin resmi dokümantasyonunu bulabilirsiniz.", isExternal: true },
+];
+
+export default function Page() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
+    "url": "https://www.typescriptogren.com/",
+    "description": "TypeScript öğrenmeye başla! Modern JavaScript’in avantajlarını keşfet, güvenli kod yaz ve projelerini geliştir.",
+    "inLanguage": "tr",
+    "publisher": {
+      "@type": "Organization",
+      "name": "TypeScript Öğren",
+      "url": "https://www.typescriptogren.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.typescriptogren.com/images/logo.png",
+        "width": 512,
+        "height": 512,
+      },
+      "sameAs": [
+        "https://www.instagram.com/typescriptogren",
+        "https://twitter.com/typescriptogren",
+      ],
+    },
+   
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.typescriptogren.com/" },
+  };
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <>
+      <Head>
+      <link rel="canonical" href="https://www.typescriptogren.com/" />
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      </Head>
+      <div className="container mx-auto p-6">
+        <PageTitle title="TypeScript Öğrenmeye Başlayın!" />
+        <MainParagraph text="TypeScript hakkında bilgi edinmek ve daha verimli kod yazmak için doğru yerdesiniz." />
+        <HomeCard cardData={cardData} />
+      </div>
+    </>
   );
 }
