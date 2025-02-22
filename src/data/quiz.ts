@@ -1,3 +1,19 @@
+export type Soru = {
+    id: string;
+    soru: string;
+    secenekler: string[];
+    dogruCevap: string;
+    cozumAciklamasi: string;
+  };
+  
+  export type Quiz = {
+    id: string;
+    title: string;
+    slug: string;
+    description: string;
+    sorular: Soru[];
+  };
+  
 export const quizler: Quiz[] = [
     {
         id: "quiz1",

@@ -7,8 +7,7 @@ interface PageProps {
   params: { slug: string };
 }
 
-// Dinamik metadata oluşturma
-export async function generateMetadata({ params }: PageProps) {
+export function generateMetadata({ params }: PageProps) {
   const post = blogPosts.find((p) => p.slug === params.slug);
 
   if (!post) {
@@ -38,7 +37,6 @@ export async function generateMetadata({ params }: PageProps) {
     };
   }
 
-  // JSON-LD verisi burada oluşturuluyor
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -46,10 +44,10 @@ export async function generateMetadata({ params }: PageProps) {
     description: post.description,
     author: {
       "@type": "Person",
-      name: "TypeScript Öğren", // Yazar bilgisi buraya eklenebilir
+      name: "TypeScript Öğren",
     },
-    datePublished: post.datePublished, // ISO 8601 formatında olmalı
-    dateModified: post.dateModified,   // ISO 8601 formatında olmalı
+    datePublished: post.datePublished,
+    dateModified: post.dateModified,
     mainEntityOfPage: `https://typescriptogren.com/blog/${post.slug}`,
     image: "https://typescriptogren.com/blog-image.jpg",
     url: `https://typescriptogren.com/blog/${post.slug}`,
@@ -78,11 +76,10 @@ export async function generateMetadata({ params }: PageProps) {
       description: post.description,
       images: ["https://typescriptogren.com/blog-image.jpg"],
     },
-    jsonLd, // JSON-LD verisini döndürüyoruz
+    jsonLd,
   };
 }
 
-// Sayfa bileşeni
 const Page = ({ params }: PageProps) => {
   const post = blogPosts.find((p) => p.slug === params.slug);
 
@@ -100,7 +97,6 @@ const Page = ({ params }: PageProps) => {
     );
   }
 
-  // JSON-LD verisini generateMetadata'tan aldık
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -110,8 +106,8 @@ const Page = ({ params }: PageProps) => {
       "@type": "Person",
       name: "TypeScript Öğren",
     },
-    datePublished: post.datePublished, // ISO 8601 formatında olmalı
-    dateModified: post.dateModified,   // ISO 8601 formatında olmalı
+    datePublished: post.datePublished,
+    dateModified: post.dateModified,
     mainEntityOfPage: `https://typescriptogren.com/blog/${post.slug}`,
     image: "https://typescriptogren.com/blog-image.jpg",
     url: `https://typescriptogren.com/blog/${post.slug}`,

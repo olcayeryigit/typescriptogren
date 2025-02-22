@@ -1,12 +1,13 @@
-// pages/quiz/[slug].tsx
+// pages/blog/[slug].tsx
+
 import { quizler } from "@/data/quiz";
 import QuizPage from "@/components/quizPage/QuizPage";
 import React from "react";
 import Head from "next/head";
 
 // SEO Metadata
-export async function generateMetadata({ params }) {
-  const slug = params?.slug as string;
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const slug = params?.slug;
   const quiz = quizler.find((q) => q.slug === slug);
 
   if (!quiz) {
@@ -59,8 +60,8 @@ export async function generateMetadata({ params }) {
 }
 
 // Sayfa bileşeni
-const Page = ({ params }) => {
-  const slug = params?.slug as string;
+const Page = ({ params }: { params: { slug: string } }) => {
+  const slug = params?.slug;
   const quiz = quizler.find((q) => q.slug === slug);
 
   if (!quiz) {
