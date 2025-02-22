@@ -1,9 +1,8 @@
 import CodeBlock from "@/components/common/CodeBlock";
-import MainParagraph from "@/components/common/MainParagraph";
 import PageTitle from "@/components/common/PageTitle";
 import Subtitle from "@/components/common/SubTitle";
 import SummaryBox from "@/components/common/SummaryBox";
-import { Info, Terminal, Wrench } from "lucide-react";
+import {  Terminal, Wrench } from "lucide-react";
 import React from "react";
 
 const TypeScriptKurulumu = () => {
@@ -17,9 +16,9 @@ const TypeScriptKurulumu = () => {
       <div className="mt-8 bg-white p-2 border-2 border-custom-gray">
         <h3 className="flex items-center text-xl font-semibold text-custom-blue mb-2">
           <Terminal className="text-custom-blue mr-2" size={22} />
-          Node.js ve npm'in Kurulu Olduğundan Emin Olun
+          Node.js ve npm&apos;in Kurulu Olduğundan Emin Olun
         </h3>
-        <p className="text-gray-700">TypeScript'i kullanabilmek için öncelikle <strong>Node.js</strong> ve <strong>npm</strong> kurulu olmalıdır. Terminal veya komut satırına aşağıdaki komutları yazarak kontrol edebilirsiniz:</p>
+        <p className="text-gray-700">TypeScript&apos;i kullanabilmek için öncelikle <strong>Node.js</strong> ve <strong>npm</strong> kurulu olmalıdır. Terminal veya komut satırına aşağıdaki komutları yazarak kontrol edebilirsiniz:</p>
         <CodeBlock code={`node -v\nnpm -v`} />
       </div>
 
@@ -27,9 +26,9 @@ const TypeScriptKurulumu = () => {
       <div className="mt-8 bg-white p-2 border-2 border-custom-gray">
         <h3 className="flex items-center text-xl font-semibold text-custom-blue mb-2">
           <Wrench className="text-custom-blue mr-2" size={22} />
-          TypeScript'i Global Olarak Yükleyin
+          TypeScript&apos;i Global Olarak Yükleyin
         </h3>
-        <p className="text-gray-700">TypeScript'i npm ile yüklemek için şu komutu çalıştırın:</p>
+        <p className="text-gray-700">TypeScript&apos;i npm ile yüklemek için şu komutu çalıştırın:</p>
         <CodeBlock code={`npm install -g typescript`} />
         <p className="text-gray-700">Yüklemenin başarılı olup olmadığını kontrol etmek için:</p>
         <CodeBlock code={`tsc -v`} />
@@ -49,7 +48,7 @@ const TypeScriptKurulumu = () => {
       {/* Derleme */}
       <div className="mt-8 bg-white p-2 border-2 border-custom-gray">
         <h3 className="text-xl font-semibold text-custom-blue mb-2">TypeScript Kodlarını Derleme</h3>
-        <p className="text-gray-700">TypeScript dosyanızı JavaScript'e çevirmek için şu komutu çalıştırabilirsiniz:</p>
+        <p className="text-gray-700">TypeScript dosyanızı JavaScript&apos;e çevirmek için şu komutu çalıştırabilirsiniz:</p>
         <CodeBlock code={`tsc index.ts`} />
         <p className="text-gray-700">Bu işlem sonucunda <code>index.js</code> dosyası oluşacaktır.</p>
       </div>

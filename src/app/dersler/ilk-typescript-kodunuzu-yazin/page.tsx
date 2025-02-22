@@ -3,7 +3,7 @@ import MainParagraph from "@/components/common/MainParagraph";
 import PageTitle from "@/components/common/PageTitle";
 import Subtitle from "@/components/common/SubTitle";
 import SummaryBox from "@/components/common/SummaryBox";
-import { CircleCheck, Code, Info } from "lucide-react";
+import { CircleCheck, Code } from "lucide-react";
 import React from "react";
 
 const IlkTypeScriptKodu = () => {
@@ -33,7 +33,7 @@ console.log(selamVer("Ahmet"));`;
       <div className="mt-8 bg-white p-2 border-2 border-custom-gray">
         <h3 className="flex items-center text-xl font-semibold text-custom-blue mb-2">
           <Code className="text-custom-blue mr-2" size={22} />
-          2. TypeScript Kodunuzu JavaScript'e Dönüştürün
+          2. TypeScript Kodunuzu JavaScript&apos;e Dönüştürün
         </h3>
         <p>Terminalde şu komutu çalıştırarak dosyanızı derleyin:</p>
         <CodeBlock code={`tsc index.ts`} />

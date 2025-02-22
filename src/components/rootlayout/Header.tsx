@@ -86,10 +86,10 @@ const Header: React.FC = () => {
 
       {/* Mobil Menü İçeriği */}
       <div
-        className={`md:hidden ${isMenuOpen ? "block" : "hidden"} bg-custom-pink py-4`}
-        aria-expanded={isMenuOpen ? "true" : "false"}
-        role="menu"
-      >
+  id="menu"
+  className={`md:hidden ${isMenuOpen ? "block" : "hidden"} bg-custom-pink py-4`}
+  role="menu"
+>
         <ul className="space-y-4 text-white text-center">
           <li>
             <Link href="/" className="hover:text-custom-gray transition" aria-label="Ana Sayfa">

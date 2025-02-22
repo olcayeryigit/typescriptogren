@@ -34,7 +34,7 @@ const QuizCard: React.FC<QuizCardProps> = ({ quiz, index }) => {
         {/* Buton */}
         <div className="inline-flex mt-3 px-3 py-2 items-center gap-2 bg-custom-blue border border-custom-blue text-white rounded-md transition-all duration-300 group-hover:bg-white group-hover:text-custom-blue">
           <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" size={18} />
-          <span>Quiz'e git</span>
+          <span>Quiz&apos;e git</span>
         </div>
       </Link>
     </div>

@@ -3,7 +3,7 @@ import MainParagraph from "@/components/common/MainParagraph";
 import PageTitle from "@/components/common/PageTitle";
 import Subtitle from "@/components/common/SubTitle";
 import SummaryBox from "@/components/common/SummaryBox";
-import {CircleCheck, Code, Info } from "lucide-react";
+import {CircleCheck, Code} from "lucide-react";
 import React from "react";
 
 const TypeScriptNedir = () => {

@@ -22,16 +22,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   const description = quiz.description || `${quiz.title} quizi ile bilginizi test edin.`;
   const keywords = `${quiz.title}, quiz, test, bilgi, öğren`;
 
-  // JSON-LD veri
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Quiz",
-    "name": quiz.title,
-    "description": quiz.description,
-    "url": `https://www.typescriptogren.com/quiz/${quiz.slug}`,
-    "image": quiz.image || "https://www.typescriptogren.com/images/quiz-og.jpg", // Örnek görsel URL'si
-    "mainEntityOfPage": `https://www.typescriptogren.com/quiz/${quiz.slug}`,
-  };
+
 
   return {
     title,
