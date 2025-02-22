@@ -1,4 +1,5 @@
 'use client';
+import BlogDetail from '@/components/blog/BlogDetail';
 import * as React from 'react';
 
 type PageProps = {
@@ -6,7 +7,7 @@ type PageProps = {
 };
 
 const Page = ({ params }: PageProps) => {
-  const [id, setId] = React.useState<string | null>(null); // State oluşturuluyor
+  const [realSlug, setRealSlug] = React.useState<string | null>(null); // State oluşturuluyor
   const [loading, setLoading] = React.useState(true); // Yükleniyor durumu ekleniyor
 
   React.useEffect(() => {
@@ -14,7 +15,7 @@ const Page = ({ params }: PageProps) => {
       try {
         const resolvedParams = await params; // params artık Promise olduğu için await ediyoruz
         if (resolvedParams && resolvedParams.slug) {
-          setId(resolvedParams.slug); // Slug parametresini alıyoruz
+          setRealSlug(resolvedParams.slug); // Slug parametresini alıyoruz
         } else {
           console.error('Params ya da slug bulunamadı');
         }
@@ -32,7 +33,13 @@ const Page = ({ params }: PageProps) => {
     return <p>Yükleniyor...</p>; // Yükleniyor mesajı gösteriyoruz
   }
 
-  return <p>ID: {id}</p>; // Slug'ı gösteriyoruz
+  return (
+    <div>
+       
+       {realSlug && <BlogDetail detail={realSlug} />}
+         
+    </div>
+  ); 
 };
 
 export default Page;
