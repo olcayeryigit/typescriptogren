@@ -4,7 +4,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>
+    <div className='container mx-auto'>
  <ul className="space-y-6">
         {blogPosts.map((post) => (
           <li key={post.id}>

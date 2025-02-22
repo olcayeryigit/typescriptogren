@@ -30,11 +30,11 @@ const Page = ({ params }: PageProps) => {
   }, [params]); // params değeri değiştiğinde çalışacak
 
   if (loading) {
-    return <p>Yükleniyor...</p>; // Yükleniyor mesajı gösteriyoruz
+    return <p className='container mx-auto p-6'>Yükleniyor...</p>; // Yükleniyor mesajı gösteriyoruz
   }
 
   return (
-    <div>
+    <div className='container mx-auto p-6'>
        
        {realSlug && <BlogDetail detail={realSlug} />}
          
