@@ -1,30 +1,37 @@
-import { blogPosts } from '@/data/blogPosts';
-import { Metadata, ResolvingMetadata } from 'next';
+// app/blog/[slug]/metadata.ts // Server-side meta verisi için
 
-// Sunucu tarafında meta verileri dinamik olarak ayarlamak için
-export async function generateMetadata(
-  { params }: { params: { slug: string } },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const slug = params.slug;
+import { blogPosts } from '@/data/blogPosts'; // Blog verileri
 
-  // `slug`'a göre blog verisini bulma
-  const blogPost = blogPosts.find(post => post.slug === slug);
+type Props = {
+  params: { slug: string }; // params.slug, URL'den alınacak slug
+};
 
-  if (!blogPost) {
-    throw new Error(`Blog post with slug "${slug}" not found.`);
+// Meta verisini sunucu tarafında oluşturmak için kullanılıyor
+export async function generateMetadata({ params }: Props) {
+  const { slug } = params;
+
+  // Sluga göre blog yazısını buluyoruz
+  const post = blogPosts.find(post => post.slug === slug);
+
+  if (post) {
+    return {
+      title: post.title,
+      description: post.description,
+      openGraph: {
+        title: post.title,
+        description: post.description,
+        images: [post.link],
+      },
+    };
   }
 
-  // Parent metadata'yı alıyoruz ve üzerine ekleme yapıyoruz
-  const previousOpenGraphImages = (await parent).openGraph?.images || [];
-
   return {
-    title: blogPost.title, // Blog başlığı
-    description: blogPost.description, // Blog özeti
+    title: "Blog Yazısı Bulunamadı",
+    description: "Bu blog yazısına ait içerik bulunamadı.",
     openGraph: {
-      title: blogPost.title,
-      description: blogPost.description,
-      images: ['/path/to/image.jpg', ...previousOpenGraphImages], // Dinamik görseller
+      title: "Blog Yazısı Bulunamadı",
+      description: "Bu blog yazısına ait içerik bulunamadı.",
+      images: [],
     },
   };
 }

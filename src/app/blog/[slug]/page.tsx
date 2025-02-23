@@ -1,70 +1,41 @@
-'use client';
+// app/blog/[slug]/page.tsx
 
-import BlogDetail from '@/components/blog/BlogDetail';
+"use client"; // Bu satır, sadece client-side kod için
+
 import * as React from 'react';
-import { blogPosts } from '@/data/blogPosts';
-import Head from 'next/head';
+import { blogPosts } from '@/data/blogPosts'; // Blog verileri
 
-type PageProps = {
-  params: Promise<{ slug: string }> // params bir Promise türünde
+type Props = {
+  params: { slug: string }; // params.slug, URL'den alınacak slug
 };
 
-const Page: React.FC<PageProps> = ({ params }) => {
-  const [realSlug, setRealSlug] = React.useState<string | null>(null);
+// Sayfa bileşeni
+export default function Page({ params }: Props) {
+  const [post, setPost] = React.useState<any>(null);
   const [loading, setLoading] = React.useState(true);
-  const [blogPost, setBlogPost] = React.useState<any>(null);
 
   React.useEffect(() => {
-    const fetchParams = async () => {
-      try {
-        // params çözülüyor
-        const resolvedParams = await params;
-        if (resolvedParams && resolvedParams.slug) {
-          const slug = resolvedParams.slug;
-          setRealSlug(slug); // Slug parametresini state'e set ediyoruz
+    // Sluga göre blog yazısını buluyoruz
+    const foundPost = blogPosts.find(post => post.slug === params.slug);
 
-          // Slug'a göre blog postunu buluyoruz
-          const post = blogPosts.find(post => post.slug === slug);
-          if (post) {
-            setBlogPost(post); // Blog yazısını state'e set ediyoruz
-          } else {
-            console.error('Blog post bulunamadı');
-          }
-        } else {
-          console.error('Slug parametresi bulunamadı');
-        }
-      } catch (error) {
-        console.error('Parametreler alınırken bir hata oluştu:', error);
-      } finally {
-        setLoading(false); // Yükleniyor durumu bitiyor
-      }
-    };
-
-    fetchParams();
-  }, [params]);
+    if (foundPost) {
+      setPost(foundPost); // Bulunan post'u state'e kaydediyoruz
+    }
+    setLoading(false); // Yükleme bitti
+  }, [params.slug]);
 
   if (loading) {
     return <p>Yükleniyor...</p>;
   }
 
+  if (!post) {
+    return <p>Blog yazısı bulunamadı.</p>;
+  }
+
   return (
-    <div className="container mx-auto p-6">
-      {/* Blog başlığını dinamik olarak set etmek */}
-      {blogPost && realSlug && (
-        <>
-          <Head>
-            <title>{blogPost.title}</title>
-            <meta name="description" content={blogPost.description} />
-            {/* Open Graph Meta Tagları */}
-            <meta property="og:title" content={blogPost.title} />
-            <meta property="og:description" content={blogPost.description} />
-            <meta property="og:image" content="/path/to/image.jpg" />
-          </Head>
-          <BlogDetail detail={realSlug} />
-        </>
-      )}
+    <div>
+      <h1>{post.title}</h1>
+      <p>{post.content}</p>
     </div>
   );
-};
-
-export default Page;
+}
