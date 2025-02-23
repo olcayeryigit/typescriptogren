@@ -17,6 +17,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ params }) => {
         if (resolvedParams && resolvedParams.slug) {
           setRealSlug(resolvedParams.slug); // Slug parametresini alıyoruz
         } else {
+            
           console.error('Params ya da slug bulunamadı');
         }
       } catch (error) {
