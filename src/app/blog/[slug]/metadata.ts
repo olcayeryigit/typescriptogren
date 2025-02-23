@@ -1,4 +1,4 @@
-// app/blog/[slug]/metadata.ts // Server-side meta verisi için
+// app/blog/[slug]/metadata.ts (Server-side meta verisi için)
 
 import { blogPosts } from '@/data/blogPosts'; // Blog verileri
 

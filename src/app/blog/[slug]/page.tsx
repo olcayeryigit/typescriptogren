@@ -1,12 +1,11 @@
 // app/blog/[slug]/page.tsx
-
-"use client"; // Bu satır, sadece client-side kod için
+"use client"; // Client-side bileşeni belirtir
 
 import * as React from 'react';
 import { blogPosts } from '@/data/blogPosts'; // Blog verileri
 
 type Props = {
-  params: { slug: string }; // params.slug, URL'den alınacak slug
+  params: { slug: string }; // URL'den alınacak slug
 };
 
 // Sayfa bileşeni
