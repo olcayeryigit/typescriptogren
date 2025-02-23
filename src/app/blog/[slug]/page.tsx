@@ -21,6 +21,7 @@ export async function generateMetadata(
   }
 }
 
+
 export default async function Page({ params }: Props) {
   // Burada params'ı çözümleyip BlogPost'a gönderiyoruz
   const resolvedParams = await params; // params'ı çözümle
