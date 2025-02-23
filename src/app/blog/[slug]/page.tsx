@@ -1,27 +1,35 @@
-'use client'
-import * as React from 'react'
+import BlogPost from '@/components/blog/BlogPost'
+import { getBlogPostBySlug } from '@/data/blogPosts'
+import type { Metadata, ResolvingMetadata } from 'next'
 
 type Props = {
   params: Promise<{ slug: string }>
 }
 
-const Page: React.FC<Props> = ({ params }) => {
-  const [slug, setSlug] = React.useState<string | null>(null);
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const resolvedParams = await params; // params'ı çözümle
+  const slug = resolvedParams.slug;
 
-  React.useEffect(() => {
-    const fetchParams = async () => {
-      const resolvedParams = await params; // params'ı çözüme kavuşturuyoruz
-      setSlug(resolvedParams.slug); // id'yi state'e set ediyoruz
-    };
+  // Blog verisini al
+  const blog = getBlogPostBySlug(slug);
 
-    fetchParams();
-  }, [params]);
-
-  if (slug=== null) {
-    return <p>Yükleniyor...</p>;
+  return {
+    title: blog?.title || 'Blog Post', // Başlık varsa onu al
   }
-
-  return <p>Slug: {slug}</p>;
 }
 
-export default Page;
+export default async function Page({ params }: Props) {
+  // Burada params'ı çözümleyip BlogPost'a gönderiyoruz
+  const resolvedParams = await params; // params'ı çözümle
+  const slug = resolvedParams.slug;
+
+  return (
+    <div>
+      {/* Slug'ı BlogPost bileşenine prop olarak gönderiyoruz */}
+      <BlogPost slug={slug} />
+    </div>
+  )
+}

@@ -41,3 +41,9 @@ export const blogPosts: BlogPost[] = [
     link: "https://www.typescriptogren.com/blog/nextjs-ile-seo-optimizasyonu",
   },
 ];
+
+
+// Slug'a göre blog yazısını bulan fonksiyon
+export function getBlogPostBySlug(slug: string): BlogPost | undefined {
+  return blogPosts.find((post) => post.slug === slug);
+}
