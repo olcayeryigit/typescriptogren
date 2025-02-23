@@ -1,10 +1,10 @@
-// page.tsx
-
-// Client tarafı için 'use client' direktifi ekleniyor
-'use client'; 
+'use client';
 
 import BlogDetail from '@/components/blog/BlogDetail';
 import * as React from 'react';
+import { Metadata } from 'next';
+import Head from 'next/head';
+import { blogPosts } from '@/data/blogPosts';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -13,13 +13,23 @@ type PageProps = {
 const Page: React.FC<PageProps> = ({ params }) => {
   const [realSlug, setRealSlug] = React.useState<string | null>(null);
   const [loading, setLoading] = React.useState(true);
+  const [blogPost, setBlogPost] = React.useState<any>(null);
 
   React.useEffect(() => {
     const fetchParams = async () => {
       try {
         const resolvedParams = await params; // params çözümleniyor
         if (resolvedParams && resolvedParams.slug) {
-          setRealSlug(resolvedParams.slug); // Slug parametresini state'e set ediyoruz
+          const slug = resolvedParams.slug;
+          setRealSlug(slug); // Slug parametresini state'e set ediyoruz
+
+          // Slug'a göre blog postunu buluyoruz
+          const post = blogPosts.find(post => post.slug === slug);
+          if (post) {
+            setBlogPost(post); // Blog yazısını state'e set ediyoruz
+          } else {
+            console.error('Blog post bulunamadı');
+          }
         } else {
           console.error('Slug parametresi bulunamadı');
         }
@@ -39,8 +49,20 @@ const Page: React.FC<PageProps> = ({ params }) => {
 
   return (
     <div className="container mx-auto p-6">
-      {/* BlogDetail bileşenine dinamik slug bilgisi ile yönlendirme */}
-      {realSlug && <BlogDetail detail={realSlug} />}
+      {/* Blog başlığını dinamik olarak set etmek */}
+      {blogPost && realSlug && (
+        <>
+          <Head>
+            <title>{blogPost.title}</title>
+            <meta name="description" content={blogPost.description} />
+            {/* Open Graph Meta Tagları */}
+            <meta property="og:title" content={blogPost.title} />
+            <meta property="og:description" content={blogPost.description} />
+            <meta property="og:image" content="/path/to/image.jpg" />
+          </Head>
+          <BlogDetail detail={realSlug} />
+        </>
+      )}
     </div>
   );
 };

@@ -1,5 +1,4 @@
 // metadata.ts
-
 import { blogPosts } from '@/data/blogPosts';
 import { Metadata, ResolvingMetadata } from 'next';
 
