@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import React from "react";
-import Head from "next/head";
 import HomeCard from "@/components/homePage/HomeCard";
 import PageTitle from "@/components/common/PageTitle";
 import MainParagraph from "@/components/common/MainParagraph";
 import { Book, ListChecks, Layers, PenSquare, HelpCircle, Terminal, Globe } from "lucide-react";
-import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
@@ -43,8 +41,14 @@ export const metadata: Metadata = {
     title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
     description:
       "TypeScript öğrenmeye başla! Modern JavaScript’in avantajlarını keşfet, güçlü ve güvenli kod yaz.",
-    images: ["https://www.typescriptogren.com/images/og-image.jpg"],
-  },
+      images: [
+        {
+          url: 'https://your-website.com/path_to_image.jpg', // Mutlaka tam URL olmalı
+          width: 800,
+          height: 600,
+          alt: 'Açıklama yazısı', // Opsiyonel
+        },
+      ],  },
   other: {
     "instagram:site": "https://www.instagram.com/typescriptogren",
   },
@@ -61,39 +65,15 @@ const cardData = [
 ];
 
 export default function Page() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
-    "url": "https://www.typescriptogren.com/",
-    "description": "TypeScript öğrenmeye başla! Modern JavaScript’in avantajlarını keşfet, güvenli kod yaz ve projelerini geliştir.",
-    "inLanguage": "tr",
-    "publisher": {
-      "@type": "Organization",
-      "name": "TypeScript Öğren",
-      "url": "https://www.typescriptogren.com/",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://www.typescriptogren.com/images/logo.png",
-        "width": 512,
-        "height": 512,
-      },
-      "sameAs": [
-        "https://www.instagram.com/typescriptogren",
-        "https://twitter.com/typescriptogren",
-      ],
-    },
-   
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.typescriptogren.com/" },
-  };
 
+
+
+
+  
+  
   return (
     <>
-     <Script
-  type="application/ld+json"
-  strategy="afterInteractive"
-  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-/>
+
       <div className="container mx-auto p-6">
         <PageTitle title="TypeScript Öğrenmeye Başlayın!" />
         <MainParagraph text="TypeScript hakkında bilgi edinmek ve daha verimli kod yazmak için doğru yerdesiniz." />

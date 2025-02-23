@@ -1,6 +1,5 @@
 import { Metadata } from "next";
 import React from "react";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Gizlilik Politikası | TypeScript Öğren",
@@ -19,36 +18,12 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "PrivacyPolicy",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://typescriptogren.com/gizlilik-politikasi"
-  },
-  "name": "Gizlilik Politikası",
-  "description":
-    "TypeScript Öğren olarak kullanıcı verilerinin gizliliğini önemsiyoruz. Verilerin nasıl işlendiği, çerez kullanımı, güvenlik önlemleri ve gizlilik politikamız hakkında detaylı bilgi alın.",
-  "publisher": {
-    "@type": "Organization",
-    "name": "TypeScript Öğren",
-    "url": "https://typescriptogren.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://typescriptogren.com/logo.png"
-    }
-  },
-  "datePublished": "2025-02-22",
-  "dateModified": "2025-02-22"
-};
+
 
 const GizlilikPolitikasi = () => {
   return (
     <>
-      <Head>
-
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </Head>
+   
 
       <div className="container mx-auto p-6 max-w-3xl">
         <div className="bg-white shadow-lg rounded-lg p-6">

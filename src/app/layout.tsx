@@ -3,7 +3,7 @@ import "./globals.css";
 import Header from "../components/rootlayout/Header";
 import React from 'react';
 import Footer from "@/components/rootlayout/Footer";
-import Head from "next/head";
+import JsonLd from "@/components/rootlayout/JsonLd";
 
 // Inter fontunu 400 ağırlığında alıyoruz
 const inter = Inter({
@@ -12,24 +12,18 @@ const inter = Inter({
   weight: ["400"], // Burada ağırlık belirtiyoruz
 });
 
-
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
-      <body
-        className={`${inter.variable} antialiased`} // Inter fontunu burada kullanıyoruz
-      >
-         <Head>
+    <html lang="tr">      
+      <head>
+         <JsonLd /> {/* JSON-LD verisi head içinde yer alacak */}
 
-
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        {/* Diğer global meta etiketler burada yer alabilir */}
-      </Head>
+      </head>
+      <body className={`${inter.variable} antialiased`}>
         <Header />
         {children}
         <Footer />

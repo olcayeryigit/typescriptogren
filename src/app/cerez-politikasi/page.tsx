@@ -1,6 +1,5 @@
 import React from "react";
 import { Metadata } from "next";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Çerez Politikası | TypeScript Öğren",
@@ -17,38 +16,15 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Çerez Politikası",
-  "url": "https://typescriptogren.com/cerez-politikasi",
-  "description": "Çerez kullanımımız ve nasıl yönetileceği hakkında ayrıntılı bilgiye buradan ulaşabilirsiniz.",
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Ana Sayfa",
-        "item": "https://typescriptogren.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Çerez Politikası",
-        "item": "https://typescriptogren.com/cerez-politikasi"
-      }
-    ]
-  }
-};
+
 
 const CerezPolitikasi = () => {
   return (
     <>
-      <Head>
-        
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </Head>
+    
+
+
+
       <div className="container mx-auto p-6 max-w-3xl">
         <div className="bg-white shadow-lg rounded-lg p-6">
           <h1 className="text-3xl font-bold text-custom-blue mb-4">Çerez Politikası</h1>

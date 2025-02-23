@@ -3,7 +3,6 @@ import { Metadata } from "next";
 import PageTitle from "@/components/common/PageTitle";
 import React from "react";
 import FAQItem from "@/components/sss/FAQItem";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",
@@ -28,32 +27,14 @@ const faqs = [
 ];
 
 const FAQPage = () => {
-  // JSON-LD verisini burada tanımlıyoruz
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": faqs.map(faq => ({
-      "@type": "Question",
-      "name": faq.question,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": faq.answer,
-      },
-    })),
-  };
+ 
 
+  
   return (
     <div className="container mx-auto p-6">
-      <PageTitle title="TypeScript Sıkça Sorulan Sorular (SSS)" />
 
-      {/* JSON-LD Script Tag */}
-      <Head>
   
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </Head>
+      <PageTitle title="TypeScript Sıkça Sorulan Sorular (SSS)" />
 
       <ul className="space-y-4">
         {faqs.map((faq, index) => (

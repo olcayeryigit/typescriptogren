@@ -4,7 +4,6 @@ import MainParagraph from "@/components/common/MainParagraph";
 import Link from "next/link";
 import { FaInstagram } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import Head from "next/head";
 
 export const metadata: Metadata = {
   title: "Bizi Takip Edin! | TypeScript Öğren",
@@ -22,33 +21,11 @@ export const metadata: Metadata = {
   },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "TypeScript Öğren",
-  "url": "https://typescriptogren.com",
-  "sameAs": [
-    "https://x.com/typescriptogren",
-    "https://www.instagram.com/typescriptogren/"
-  ],
-  "logo": {
-    "@type": "ImageObject",
-    "url": "https://typescriptogren.com/logo.png"
-  },
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "contactType": "customer service",
-    "url": "https://typescriptogren.com/iletisim"
-  }
-};
+
 
 const Page = () => {
   return (
-    <>
-      <Head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </Head>
-
+   
       <div className="container mx-auto p-6">
         <PageTitle title="Bizi Takip Edin!" />
         <MainParagraph text="TypeScript öğrenme yolculuğunda bizlerle birlikte ilerleyin. Sosyal medya hesaplarımızdan paylaşımlarımızı takip ederek, yeni dersler ve içerikler hakkında bilgi edinebilirsiniz." />
@@ -75,7 +52,7 @@ const Page = () => {
           </Link>
         </div>
       </div>
-    </>
+   
   );
 };
 

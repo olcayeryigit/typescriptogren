@@ -1,8 +1,9 @@
 import React from "react";
-import Head from "next/head";
 import LessonCard from "@/components/lessonPage/LessonCard";
 import PageTitle from "@/components/common/PageTitle";
 import type { Metadata } from "next";
+import Script from "next/script";
+import { dersler } from "@/data/dersler";
 
 export const metadata: Metadata = {
   title: "TypeScript Dersleri – Başlangıçtan İleri Seviyeye Öğrenin",
@@ -46,33 +47,6 @@ export const metadata: Metadata = {
 };
 
 
-const dersler = [
-  { 
-    baslik: "TypeScript Nedir?", 
-    link: "/dersler/typescript-nedir", 
-    aciklama: "TypeScript'in ne olduğunu, nasıl çalıştığını ve JavaScript ile farklarını keşfedin."
-  },
-  { 
-    baslik: "TypeScript Kurulumu", 
-    link: "/dersler/typescript-kurulumu", 
-    aciklama: "TypeScript'i bilgisayarınıza kurma ve ilk proje setup'ınızı yapma adımlarını öğrenin."
-  },
-  { 
-    baslik: "İlk TypeScript Kodunuzu Yazın", 
-    link: "/dersler/ilk-typescript-kodunuzu-yazin", 
-    aciklama: "TypeScript ile ilk programınızı yazın ve temel sözdizimini keşfedin."
-  },
-  { 
-    baslik: "TypeScript Veri Türleri", 
-    link: "/dersler/typescript-veri-turleri", 
-    aciklama: "TypeScript'in güçlü tip sistemiyle ilgili temel veri türlerini öğrenin."
-  },
-  { 
-    baslik: "TypeScript Union ve Intersection Types", 
-    link: "/dersler/typescript-union-intersection", 
-    aciklama: "Birleşim ve kesişim türleri ile veri türlerinizi nasıl birleştirebileceğinizi öğrenin."
-  },
-];
 
 const DerslerPage = () => {
   const jsonLd = {
@@ -102,10 +76,12 @@ const DerslerPage = () => {
 
   return (
     <>
-      <Head>
-
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </Head>
+        <Script
+         key="jsonld" 
+  type="application/ld+json"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+/>
 
       <div className="container mx-auto p-6">
         <PageTitle title="TypeScript Dersleri" />

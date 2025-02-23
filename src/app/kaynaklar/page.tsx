@@ -3,7 +3,6 @@ import MainParagraph from "@/components/common/MainParagraph";
 import PageTitle from "@/components/common/PageTitle";
 import Link from "next/link";
 import { Metadata } from "next";
-import Head from "next/head";
 import { FaLink } from "react-icons/fa";
 import React from "react";
 
@@ -45,8 +44,14 @@ export const metadata: Metadata = {
     title: "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
     description:
       "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
-    images: ["https://www.typescriptogren.com/images/kaynaklar-og.jpg"],
-  },
+      images: [
+        {
+          url: 'https://your-website.com/path_to_image.jpg', // Mutlaka tam URL olmalı
+          width: 800,
+          height: 600,
+          alt: 'Açıklama yazısı', // Opsiyonel
+        },
+      ],  },
 };
 
 // TypeScript Kaynakları
@@ -60,29 +65,13 @@ const resources = [
   { name: "TypeScript Blog", url: "https://devblogs.microsoft.com/typescript/" },
 ];
 
-// JSON-LD (Schema.org) Yapısı
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "ItemList",
-  "name": "TypeScript Kaynakları",
-  "description": "TypeScript öğrenmek isteyenler için en iyi kaynaklar. Resmi dokümantasyon, GitHub deposu ve eğitim materyalleri.",
-  "url": "https://www.typescriptogren.com/resources",
-  "numberOfItems": resources.length,
-  "itemListElement": resources.map((resource, index) => ({
-    "@type": "WebPage",
-    "position": index + 1,
-    "name": resource.name,
-    "url": resource.url,
-  })),
-};
+
 
 const TypeScriptResources = () => {
   return (
     <div className="container mx-auto p-6">
 
-      <Head>
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </Head>
+ 
 
       {/* Sayfa Başlığı */}
       <PageTitle title="TypeScript Kaynakları" />
