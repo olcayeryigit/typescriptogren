@@ -17,17 +17,19 @@ export const metadata: Metadata = {
     "JavaScript geliştirme", "TypeScript dökümantasyon", "TypeScript eğitimleri",
     "TypeScript resmi kaynakları", "Frontend geliştirme", "Web geliştirme", 
     "TypeScript en iyi kaynaklar"
-  ],
+  ], alternates: {
+    canonical: "https://www.typescriptogren.com/kaynaklar"
+    },
   
   openGraph: {
     title: "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
     description:
       "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
-    url: "https://www.typescriptogren.com/resources",
+    url: "https://www.typescriptogren.com/kaynaklar",
     siteName: "TypeScript Öğren",
     images: [
       {
-        url: "https://www.typescriptogren.com/images/resources-og.jpg",
+        url: "https://www.typescriptogren.com/images/kaynaklar-og.jpg",
         width: 1200,
         height: 630,
         alt: "TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
@@ -43,7 +45,7 @@ export const metadata: Metadata = {
     title: "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
     description:
       "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
-    images: ["https://www.typescriptogren.com/images/resources-og.jpg"],
+    images: ["https://www.typescriptogren.com/images/kaynaklar-og.jpg"],
   },
 };
 
@@ -79,7 +81,6 @@ const TypeScriptResources = () => {
     <div className="container mx-auto p-6">
 
       <Head>
-      <link rel="canonical" href="https://www.typescriptogren.com/kaynaklar" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </Head>
 

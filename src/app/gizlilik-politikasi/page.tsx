@@ -6,7 +6,9 @@ export const metadata: Metadata = {
   title: "Gizlilik Politikası | TypeScript Öğren",
   description:
     "TypeScript Öğren olarak kullanıcı verilerinin gizliliğini önemsiyoruz. Verilerin nasıl işlendiği, çerezler, güvenlik önlemleri ve gizlilik politikası hakkında bilgi edinin.",
-
+    alternates: {
+      canonical: "https://www.typescriptogren.com/gizlilik-politikasi"
+      },
   openGraph: {
     title: "Gizlilik Politikası | TypeScript Öğren",
     description:
@@ -44,7 +46,6 @@ const GizlilikPolitikasi = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://typescriptogren.com/gizlilik-politikasi" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </Head>

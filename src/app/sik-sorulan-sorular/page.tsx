@@ -8,7 +8,9 @@ import Head from "next/head";
 export const metadata: Metadata = {
   title: "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",
   description: "TypeScript hakkında en çok merak edilen soruların yanıtlarını burada bulabilirsiniz. TypeScript nedir? Kullanmalı mıyım? Zor mu?",
- 
+  alternates: {
+    canonical: "https://www.typescriptogren.com/sik-sorulan-sorular"
+    },
   openGraph: {
     title: "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",
     description: "TypeScript ile ilgili en yaygın sorular ve cevaplar burada! Hemen öğrenmeye başla.",
@@ -46,11 +48,7 @@ const FAQPage = () => {
 
       {/* JSON-LD Script Tag */}
       <Head>
-        <title>TypeScript Sıkça Sorulan Sorular | TypeScript Öğren</title>
-        <link rel="canonical" href="https://www.typescriptogren.com/sik-sorulan-sorular" />
-
-        <meta name="description" content="TypeScript hakkında en çok merak edilen soruların yanıtlarını burada bulabilirsiniz. TypeScript nedir? Kullanmalı mıyım? Zor mu?" />
-        <meta name="keywords" content="TypeScript, sıkça sorulan sorular, öğren, programlama, JavaScript" />
+  
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

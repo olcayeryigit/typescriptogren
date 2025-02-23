@@ -9,6 +9,9 @@ import Head from "next/head";
 export const metadata: Metadata = {
   title: "Bizi Takip Edin! | TypeScript Öğren",
   description: "TypeScript öğrenme yolculuğunuzda bizimle ilerleyin. Twitter ve Instagram hesaplarımızdan içeriklerimizi takip edebilirsiniz.",
+  alternates: {
+    canonical: "https://www.typescriptogren.com/iletisim"
+    },
  
   openGraph: {
     title: "Bizi Takip Edin! | TypeScript Öğren",
@@ -43,7 +46,6 @@ const Page = () => {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://typescriptogren.com/iletisim" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </Head>
 

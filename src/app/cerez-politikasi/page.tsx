@@ -5,7 +5,9 @@ import Head from "next/head";
 export const metadata: Metadata = {
   title: "Çerez Politikası | TypeScript Öğren",
   description: "Çerez politikamız hakkında detaylı bilgi edinin. Kullanıcı deneyimini geliştirmek ve reklamları kişiselleştirmek amacıyla çerezleri nasıl kullandığımızı öğrenin.",
-
+  alternates: {
+    canonical: "https://www.typescriptogren.com/cerez-politikasi"
+    },
   openGraph: {
     title: "Çerez Politikası | TypeScript Öğren",
     description: "Çerez kullanımımız ve nasıl yönetileceği hakkında ayrıntılı bilgiye buradan ulaşabilirsiniz.",
@@ -44,9 +46,7 @@ const CerezPolitikasi = () => {
   return (
     <>
       <Head>
-        <title>Çerez Politikası | TypeScript Öğren</title>
-        <meta name="description" content="Çerez politikamız hakkında detaylı bilgi edinin. Kullanıcı deneyimini geliştirmek ve reklamları kişiselleştirmek amacıyla çerezleri nasıl kullandığımızı öğrenin." />
-        <link rel="canonical" href="https://typescriptogren.com/cerez-politikasi" />
+        
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </Head>
       <div className="container mx-auto p-6 max-w-3xl">

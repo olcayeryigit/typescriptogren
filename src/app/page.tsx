@@ -15,7 +15,9 @@ export const metadata: Metadata = {
     "Yazılım geliştirme", "Frontend geliştirme", "Backend geliştirme", "Web geliştirme",
     "Kodlama öğrenme", "React ile TypeScript", "Node.js ve TypeScript", "TypeScript projeleri"
   ],
-
+  alternates: {
+    canonical: "https://www.typescriptogren.com/"
+    },
   openGraph: {
     title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
     description:
@@ -87,7 +89,6 @@ export default function Page() {
   return (
     <>
       <Head>
-      <link rel="canonical" href="https://www.typescriptogren.com/" />
 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </Head>
