@@ -1,14 +1,23 @@
-import * as React from 'react';
-import BlogDetail from './BlogDetail';
+import { Metadata } from 'next'; // Metadata tipi
 
 type BlogPageProps = {
-  pathname: string; // pathname prop olarak alınıyor
+  slug: string;
 };
 
-const BlogPage: React.FC<BlogPageProps> = ({ pathname }) => {
+// Metadata oluşturuluyor
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+  const { slug } = params;
+
+  return {
+    title: `Blog Post: ${slug}`, // Slug'a göre başlık oluşturuluyor
+  };
+}
+
+const BlogPage: React.FC<BlogPageProps> = ({ slug }) => {
   return (
     <div>
-      <BlogDetail detail={pathname}/>
+      <h1>Blog Post: {slug}</h1>
+      <p>Here is the content for the blog post with slug: {slug}</p>
     </div>
   );
 };

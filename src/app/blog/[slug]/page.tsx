@@ -1,40 +1,32 @@
-// app/blog/[slug]/page.tsx
-"use client"; // Client-side bileşeni belirtir
-
-import * as React from 'react';
-import { blogPosts } from '@/data/blogPosts'; // Blog verileri
+'use client'
+import BlogPage from '@/components/blog/BlogPage'
+import * as React from 'react'
 
 type Props = {
-  params: { slug: string }; // URL'den alınacak slug
-};
+  params: Promise<{ slug: string }>
+}
 
-// Sayfa bileşeni
-export default function Page({ params }: Props) {
-  const [post, setPost] = React.useState<any>(null);
-  const [loading, setLoading] = React.useState(true);
+const Page: React.FC<Props> = ({ params }) => {
+  const [slug, setSlug] = React.useState<string | null>(null);
 
   React.useEffect(() => {
-    // Sluga göre blog yazısını buluyoruz
-    const foundPost = blogPosts.find(post => post.slug === params.slug);
+    const fetchParams = async () => {
+      const resolvedParams = await params; // params'ı çözüme kavuşturuyoruz
+      setSlug(resolvedParams.slug); // id'yi state'e set ediyoruz
+    };
 
-    if (foundPost) {
-      setPost(foundPost); // Bulunan post'u state'e kaydediyoruz
-    }
-    setLoading(false); // Yükleme bitti
-  }, [params.slug]);
+    fetchParams();
+  }, [params]);
 
-  if (loading) {
+  if (slug=== null) {
     return <p>Yükleniyor...</p>;
   }
 
-  if (!post) {
-    return <p>Blog yazısı bulunamadı.</p>;
-  }
+  return <div>
 
-  return (
-    <div>
-      <h1>{post.title}</h1>
-      <p>{post.content}</p>
-    </div>
-  );
+<BlogPage slug={slug} />
+
+  </div>;
 }
+
+export default Page;
