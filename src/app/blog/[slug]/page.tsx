@@ -2,9 +2,8 @@
 
 import BlogDetail from '@/components/blog/BlogDetail';
 import * as React from 'react';
-import { Metadata } from 'next';
-import Head from 'next/head';
 import { blogPosts } from '@/data/blogPosts';
+import Head from 'next/head';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
