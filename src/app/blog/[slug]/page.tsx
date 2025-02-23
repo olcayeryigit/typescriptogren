@@ -6,7 +6,7 @@ import { blogPosts } from '@/data/blogPosts';
 import Head from 'next/head';
 
 type PageProps = {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }> // params bir Promise türünde
 };
 
 const Page: React.FC<PageProps> = ({ params }) => {
@@ -17,7 +17,8 @@ const Page: React.FC<PageProps> = ({ params }) => {
   React.useEffect(() => {
     const fetchParams = async () => {
       try {
-        const resolvedParams = await params; // params çözümleniyor
+        // params çözülüyor
+        const resolvedParams = await params;
         if (resolvedParams && resolvedParams.slug) {
           const slug = resolvedParams.slug;
           setRealSlug(slug); // Slug parametresini state'e set ediyoruz

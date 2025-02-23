@@ -1,13 +1,12 @@
-// metadata.ts
 import { blogPosts } from '@/data/blogPosts';
 import { Metadata, ResolvingMetadata } from 'next';
 
+// Sunucu tarafında meta verileri dinamik olarak ayarlamak için
 export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }> },
+  { params }: { params: { slug: string } },
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
+  const slug = params.slug;
 
   // `slug`'a göre blog verisini bulma
   const blogPost = blogPosts.find(post => post.slug === slug);
