@@ -1,32 +1,10 @@
-// app/products/[slug]/page.tsx
-import * as React from 'react';
-import { Metadata, ResolvingMetadata } from 'next';
+// page.tsx
+
+// Client tarafı için 'use client' direktifi ekleniyor
+'use client'; 
+
 import BlogDetail from '@/components/blog/BlogDetail';
-
-// Dinamik Metadata Generation (slug'a göre)
-export async function generateMetadata(
-  { params }: { params: Promise<{ slug: string }> },
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  const resolvedParams = await params;
-  const slug = resolvedParams.slug;
-
-  // API'den blog verisini alıyoruz
-  const blogPost = await fetch(`https://example.com/api/blog/${slug}`).then(res => res.json());
-
-  // Parent metadata'yı alıyoruz ve üzerine ekleme yapıyoruz
-  const previousOpenGraphImages = (await parent).openGraph?.images || [];
-
-  return {
-    title: blogPost.title, // Blog başlığı
-    description: blogPost.excerpt, // Blog özeti
-    openGraph: {
-      title: blogPost.title,
-      description: blogPost.excerpt,
-      images: ['/path/to/image.jpg', ...previousOpenGraphImages], // Dinamik görseller
-    },
-  };
-}
+import * as React from 'react';
 
 type PageProps = {
   params: Promise<{ slug: string }>;
