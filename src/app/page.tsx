@@ -5,6 +5,7 @@ import HomeCard from "@/components/homePage/HomeCard";
 import PageTitle from "@/components/common/PageTitle";
 import MainParagraph from "@/components/common/MainParagraph";
 import { Book, ListChecks, Layers, PenSquare, HelpCircle, Terminal, Globe } from "lucide-react";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
@@ -88,10 +89,11 @@ export default function Page() {
 
   return (
     <>
-      <Head>
-
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      </Head>
+     <Script
+  type="application/ld+json"
+  strategy="afterInteractive"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+/>
       <div className="container mx-auto p-6">
         <PageTitle title="TypeScript Öğrenmeye Başlayın!" />
         <MainParagraph text="TypeScript hakkında bilgi edinmek ve daha verimli kod yazmak için doğru yerdesiniz." />
