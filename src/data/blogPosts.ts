@@ -9,6 +9,7 @@ export interface BlogPost {
   content: string; // Blog yazısının içeriği
   publishedAt: string; // Yayınlanma tarihi
   link: string; // Blog yazısının tam bağlantısı
+  image:string;
 }
 
 // Örnek blog verisi
@@ -21,6 +22,7 @@ export const blogPosts: BlogPost[] = [
     content: "TypeScript'in temelleri, türler, tip güvenliği ve diğer özellikler hakkında detaylı bilgiler.",
     publishedAt: "2025-02-22",
     link: "https://www.typescriptogren.com/blog/typescript-ile-programlama",
+    image:""
   },
   {
     id: 2,
@@ -30,6 +32,7 @@ export const blogPosts: BlogPost[] = [
     content: "Redux ile durum yönetimi, React ile bileşen yapısı ve diğer önemli konular.",
     publishedAt: "2025-02-21",
     link: "https://www.typescriptogren.com/blog/react-ve-redux",
+    image:""
   },
   {
     id: 3,
@@ -39,6 +42,7 @@ export const blogPosts: BlogPost[] = [
     content: "SEO, sayfa yükleme süresi, ve Next.js ile SEO'yu iyileştirmek için en iyi uygulamalar.",
     publishedAt: "2025-02-20",
     link: "https://www.typescriptogren.com/blog/nextjs-ile-seo-optimizasyonu",
+    image:""
   },
 ];
 

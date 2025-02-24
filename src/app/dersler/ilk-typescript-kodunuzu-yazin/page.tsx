@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import CodeBlock from "@/components/common/CodeBlock";
 import MainParagraph from "@/components/common/MainParagraph";
 import PageTitle from "@/components/common/PageTitle";
@@ -5,6 +6,49 @@ import Subtitle from "@/components/common/SubTitle";
 import SummaryBox from "@/components/common/SummaryBox";
 import { CircleCheck, Code } from "lucide-react";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "İlk TypeScript Kodunuzu Yazın",
+  description:
+    "Bu rehberde, TypeScript ile ilk kodunuzu nasıl yazacağınızı, derleyip çalıştıracağınızı adım adım öğreneceksiniz.",
+  keywords: [
+    "TypeScript",
+    "JavaScript",
+    "TypeScript dersleri",
+    "TypeScript başlangıç",
+    "TypeScript öğrenme",
+    "tsc",
+    "TypeScript nedir",
+  ],
+  alternates: {
+    canonical: "https://www.typescriptogren.com/dersler/ilk-typescript-kodunuzu-yazin"
+    },
+  openGraph: {
+    title: "İlk TypeScript Kodunuzu Yazın",
+    description:
+      "TypeScript ile ilk programınızı yazın ve çalıştırın! Adım adım rehberimizi takip edin.",
+    url: "https://www.typescriptogren.com/dersler/ilk-typescript-kodunuzu-yazin",
+    type: "article",
+    images: [
+      {
+        url: "https://seninsiten.com/static/images/typescript-guide.png",
+        alt: "TypeScript öğrenme rehberi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "İlk TypeScript Kodunuzu Yazın",
+    description:
+      "TypeScript'e giriş yapmak isteyenler için adım adım ilk kod yazma rehberi!",
+    images: ["https://seninsiten.com/static/images/typescript-guide.png"],
+  },
+  authors: [{ name: "Olcay", url: "https://seninsiten.com" }],
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 const IlkTypeScriptKodu = () => {
   const sampleCode = `function selamVer(isim: string): string {
@@ -51,10 +95,7 @@ console.log(selamVer("Ahmet"));`;
       </div>
 
       {/* Özet */}
-
       <SummaryBox text="Bu adımları tamamladıktan sonra ilk TypeScript programınızı başarıyla çalıştırmış olacaksınız." />
-
-    
     </div>
   );
 };

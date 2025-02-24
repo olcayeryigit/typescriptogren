@@ -49,9 +49,6 @@ export const metadata: Metadata = {
           alt: 'Açıklama yazısı', // Opsiyonel
         },
       ],  },
-  other: {
-    "instagram:site": "https://www.instagram.com/typescriptogren",
-  },
 };
 
 const cardData = [
