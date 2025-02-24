@@ -54,6 +54,10 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-custom-gray text-2xl hover:text-custom-blue-2 border-2 hover:border-custom-blue-2  transition bg-white rounded-md p-1"
+            aria-label="Twitter"
+
+            title="TypeScript Öğren Twitter Sayfası"
+
           >
             <FaXTwitter />
           </Link>
@@ -62,6 +66,9 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-custom-gray text-2xl hover:text-custom-blue-2 border-2 hover:border-custom-blue-2  transition bg-white rounded-md p-1"
+            title="TypeScript Öğren İnstagram Sayfası"
+            aria-label="Instagram"
+
           >
             <FaInstagram />
           </Link>

@@ -58,6 +58,7 @@ const Header: React.FC = () => {
             rel="noopener noreferrer"
             className="text-custom-gray text-2xl hover:text-custom-blue-2 border-2  transition bg-white rounded-md p-1"
             aria-label="Twitter"
+             title="TypeScript Öğren Twitter Sayfası"
           >
             <FaXTwitter />
           </Link>
@@ -67,6 +68,8 @@ const Header: React.FC = () => {
             rel="noopener noreferrer"
             className="text-custom-gray text-2xl hover:text-custom-blue-2 border-2   transition bg-white rounded-md p-1"
             aria-label="Instagram"
+            title="TypeScript Öğren İnstagram Sayfası"
+
           >
             <FaInstagram />
           </Link>
