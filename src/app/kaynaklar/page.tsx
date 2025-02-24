@@ -69,7 +69,7 @@ const resources = [
 
 const TypeScriptResources = () => {
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto py-3 px-5 md:py-6">
 
  
 
@@ -78,30 +78,32 @@ const TypeScriptResources = () => {
       <MainParagraph text="TypeScript, JavaScript’in güçlü bir üst kümesi olup statik tür sistemine sahiptir. Modern web ve mobil uygulamalarda yaygın olarak kullanılmaktadır. Bu listedeki kaynaklar, TypeScript’i sıfırdan öğrenmek isteyenlerden ileri seviyede kendini geliştirmek isteyenlere kadar herkese hitap eder. Resmi dökümantasyon, GitHub deposu ve bloglar sayesinde güncel kalabilir, online kurslarla kendinizi geliştirebilirsiniz." />
 
       <MainParagraph text="TypeScript öğrenmek ve güncel gelişmeleri takip etmek için aşağıdaki kaynaklardan faydalanabilirsiniz:" />
+{/* Kaynaklar Listesi */}
+<ul className="space-y-4">
+  {resources.map((resource, index) => (
+    <li key={index}>
+      <Link
+        href={resource.url}
+        target="_blank"
+        rel="nofollow noopener noreferrer"
+        className="block border-2 border-custom-gray bg-white hover:bg-gray-100 p-4 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md group text-sm md:text-md  "
+      >
+        <div className="flex items-center gap-2">
+          {/* Link İkonu */}
+          <FaLink className="text-custom-blue group-hover:text-custom-gray transition-all duration-300" />
 
-      {/* Kaynaklar Listesi */}
-      <ul className="space-y-4 mt-4">
-        {resources.map((resource, index) => (
-          <li key={index}>
-            <Link
-              href={resource.url}
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              className="block border-2 border-custom-gray bg-white hover:bg-gray-100 p-4 rounded-lg transition-all duration-300 shadow-sm hover:shadow-md group"
-            >
-              <div className="flex items-center gap-2">
-                {/* Link İkonu */}
-                <FaLink className="text-custom-blue group-hover:text-custom-gray transition-all duration-300" />
+          {/* Link Metni */}
+          <span className="font-semibold text-gray-700 group-hover:text-custom-blue transition-all duration-300">
+            {resource.name}
+          </span>
+        </div>
+      </Link>
+    </li>
+  ))}
+</ul>
 
-                {/* Link Metni */}
-                <span className="font-semibold text-gray-700 group-hover:text-custom-blue transition-all duration-300">
-                  {resource.name}
-                </span>
-              </div>
-            </Link>
-          </li>
-        ))}
-      </ul>
+{/* Responsive için düzenlemeler */}
+
     </div>
   );
 };

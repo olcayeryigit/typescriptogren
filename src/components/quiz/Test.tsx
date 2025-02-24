@@ -26,7 +26,9 @@ const Test: React.FC<TestProps> = ({ quizName }) => {
   }
 
   const handleCevap = (soruId: string, secilenCevap: string) => {
-    const dogruMu = quiz.sorular.find(s => s.id === soruId)?.dogruCevap === secilenCevap;
+    const dogruCevap = quiz.sorular.find(s => s.id === soruId)?.dogruCevap;
+    const dogruMu = dogruCevap === secilenCevap;
+
     setCevaplar(prev => ({ ...prev, [soruId]: secilenCevap }));
     setSonuclar(prev => ({ ...prev, [soruId]: dogruMu }));
     if (dogruMu) setPuan(prev => prev + 10);
@@ -52,7 +54,6 @@ const Test: React.FC<TestProps> = ({ quizName }) => {
     }
   };
 
-
   if (quizTamamlandi) {
     return (
       <div className="p-6 bg-white container mx-auto text-center shadow-lg rounded-lg">
@@ -69,7 +70,7 @@ const Test: React.FC<TestProps> = ({ quizName }) => {
           )}
           <Link
             className="p-2 bg-gray-500 text-white rounded-lg flex items-center justify-center gap-2"
-           href="/quiz"
+            href="/quiz"
           >
             Quiz Listesine Dön <List />
           </Link>
@@ -81,29 +82,38 @@ const Test: React.FC<TestProps> = ({ quizName }) => {
   const soru = quiz.sorular[currentQuestionIndex];
 
   return (
-    <div className="max-w-xl p-4 mx-auto  bg-white border-2 border-custom-gray rounded-sm">
+    <div className="max-w-xl p-4 mx-auto bg-white border-2 border-custom-gray rounded-sm">
       <h1 className="text-2xl font-bold mb-4 text-center">{quiz.title} Testi</h1>
       <p className="text-center mb-6">Puan: <span className="font-bold text-blue-500">{puan}</span></p>
       <div className="mb-4 p-4 border-2 rounded-sm border-custom-blue bg-gray-200">
         <p className="font-semibold">{soru.soru}</p>
         <div className="mt-2 flex flex-col gap-2">
-          {soru.secenekler.map(secenek => (
-            <button
-              key={secenek}
-              className={`p-2 rounded-sm flex items-center gap-2 transition-all ${
-                cevaplar[soru.id] === secenek 
-                  ? sonuclar[soru.id] 
-                    ? 'bg-green-500 text-white' 
-                    : 'bg-red-500 text-white' 
-                  : 'bg-white'
-              }`}
-              onClick={() => handleCevap(soru.id, secenek)}
-              disabled={!!cevaplar[soru.id]}
-            >
-              {cevaplar[soru.id] === secenek && (sonuclar[soru.id] ? <CheckCircle size={18} /> : <XCircle size={18} />)}
-              {secenek}
-            </button>
-          ))}
+          {soru.secenekler.map(secenek => {
+            const isSelected = cevaplar[soru.id] === secenek;
+            const isCorrect = soru.dogruCevap === secenek;
+            const isWrong = isSelected && !sonuclar[soru.id];
+
+            return (
+              <button
+                key={secenek}
+                className={`p-2 rounded-sm flex items-center gap-2 transition-all 
+                  ${
+                    isSelected
+                      ? sonuclar[soru.id]
+                        ? 'bg-green-500 text-white' // Doğru işaretlenirse yeşil
+                        : 'bg-red-500 text-white' // Yanlış işaretlenirse kırmızı
+                      : isCorrect && cevaplar[soru.id]
+                        ? 'bg-green-500 text-white' // Yanlış işaretlense bile doğru cevap yeşil
+                        : 'bg-white'
+                  }`}
+                onClick={() => handleCevap(soru.id, secenek)}
+                disabled={!!cevaplar[soru.id]}
+              >
+                {isSelected && (sonuclar[soru.id] ? <CheckCircle size={18} /> : <XCircle size={18} />)}
+                {secenek}
+              </button>
+            );
+          })}
         </div>
         {cevaplar[soru.id] && (
           <p className="mt-2 text-sm text-gray-700 italic">
@@ -112,34 +122,32 @@ const Test: React.FC<TestProps> = ({ quizName }) => {
         )}
       </div>
       <div className="flex justify-between mt-4">
-      <button
-  className={`p-2 text-white rounded-sm flex items-center gap-2 transition-all ${
-    currentQuestionIndex === 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-custom-blue'
-  }`}
-  onClick={geri}
-  disabled={currentQuestionIndex === 0}
->
-  <ArrowLeft /> Geri
-</button>
+        <button
+          className={`p-2 text-white rounded-sm flex items-center gap-2 transition-all ${
+            currentQuestionIndex === 0 ? 'bg-gray-400 cursor-not-allowed' : 'bg-custom-blue'
+          }`}
+          onClick={geri}
+          disabled={currentQuestionIndex === 0}
+        >
+          <ArrowLeft /> Geri
+        </button>
 
-<Link
+        <Link
           className="mx-2 w-full p-2 bg-custom-gray text-white rounded-sm flex items-center justify-center gap-2"
           href="/quiz"
         >
           Quiz Listesine Dön <List />
         </Link>
 
-<button
-  className={` p-2 text-white rounded-sm  flex items-center gap-2 transition-all ${
-    currentQuestionIndex < quiz.sorular.length - 1 ? 'bg-custom-blue' : 'bg-green-500'
-  }`}
-  onClick={ileri}
->
-  {currentQuestionIndex < quiz.sorular.length - 1 ? 'İleri' : 'Bitir'} <ArrowRight />
-</button>
-
+        <button
+          className={`p-2 text-white rounded-sm flex items-center gap-2 transition-all ${
+            currentQuestionIndex < quiz.sorular.length - 1 ? 'bg-custom-blue' : 'bg-green-500'
+          }`}
+          onClick={ileri}
+        >
+          {currentQuestionIndex < quiz.sorular.length - 1 ? 'İleri' : 'Bitir'} <ArrowRight />
+        </button>
       </div>
-      
     </div>
   );
 };

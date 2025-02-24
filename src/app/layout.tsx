@@ -21,7 +21,6 @@ export default function RootLayout({
     <html lang="tr">      
       <head>
          <JsonLd /> {/* JSON-LD verisi head içinde yer alacak */}
-
       </head>
       <body className={`${inter.variable} antialiased`}>
         <Header />

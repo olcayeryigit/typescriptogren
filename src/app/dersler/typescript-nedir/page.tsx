@@ -31,21 +31,26 @@ let isimTS: string = "Ahmet";  // Artık sadece string olabilir!`;
 
   return (
     <div className="container mx-auto p-6">
-      <PageTitle title="TypeScript Nedir?" />
-      <Subtitle text="JavaScript'in güçlü bir süper seti olan TypeScript'i keşfedin!" />
-      <MainParagraph text="TypeScript, JavaScript'in daha güçlü ve güvenli bir sürümüdür. Microsoft tarafından geliştirilmiş olup, büyük ölçekli projelerde kod kalitesini artırmaya yardımcı olur." />
+<PageTitle title="TypeScript Nedir? – Güçlü ve Güvenli JavaScript" />
+<Subtitle text="JavaScript'in güçlü bir süper seti olan TypeScript'i keşfedin!" />
+<MainParagraph text="TypeScript, JavaScript'in güçlü ve statik tür destekli bir sürümüdür. Microsoft tarafından geliştirilmiş olup, büyük ölçekli projelerde hata oranını azaltır, kod okunabilirliğini artırır ve daha güvenli bir geliştirme süreci sunar. TypeScript ile modern yazılım geliştirmede bir adım öne geçin!" />
 
-      <div className="mt-8 bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
-        <h3 className="flex items-center text-xl font-semibold text-custom-blue mb-3">
-          <CircleCheck className="text-custom-blue mr-2" size={22} />
-          TypeScript’in Öne Çıkan Özellikleri
-        </h3>
-        <ul className="list-disc list-inside text-gray-700 space-y-2">
-          <li><strong>Statik Tipleme:</strong> Hataları daha erken yakalarsınız.</li>
-          <li><strong>Modern ES6+ Desteği:</strong> Yeni nesil JavaScript özelliklerini kullanabilirsiniz.</li>
-          <li><strong>Daha Okunabilir Kod:</strong> Büyük projelerde sürdürülebilirlik sağlar.</li>
-        </ul>
-      </div>
+<div className="mt-8 bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-200">
+  <h3 className="flex items-center text-xl font-semibold text-custom-blue mb-3">
+    <CircleCheck className="text-custom-blue mr-2" size={22} />
+    TypeScript’in Öne Çıkan Avantajları
+  </h3>
+  <ul className="list-disc list-inside text-gray-700 space-y-2 text-base">
+    <li><strong>Statik Tür Desteği:</strong> Hataları daha kod yazım aşamasında tespit eder, daha güvenilir ve hata oranı düşük projeler oluşturmanıza yardımcı olur.</li>
+    <li><strong>Modern JavaScript Desteği:</strong> ES6, ES7 ve daha yeni JavaScript özellikleriyle tamamen uyumludur ve geliştiricilere en güncel sözdizimi avantajlarını sunar.</li>
+    <li><strong>Daha Okunabilir ve Ölçeklenebilir Kod:</strong> Büyük projelerde kod organizasyonunu iyileştirerek, ekip çalışmasını kolaylaştırır ve sürdürülebilirliği artırır.</li>
+    <li><strong>Gelişmiş IDE ve Otomatik Tamamlama:</strong> Visual Studio Code gibi popüler editörlerde daha iyi hata yakalama, otomatik tamamlama (autocomplete) ve refactoring desteği sağlar.</li>
+    <li><strong>Güçlü OOP Desteği:</strong> Sınıflar, arayüzler ve soyutlamalar (abstraction) gibi nesne yönelimli programlama (OOP) prensiplerini destekleyerek temiz ve yapılandırılmış kod yazmayı teşvik eder.</li>
+    <li><strong>JavaScript ile Tam Uyum:</strong> Mevcut JavaScript projelerine kolayca entegre edilebilir ve esnek kullanım sunar.</li>
+    <li><strong>Topluluk ve Sürekli Güncellenme:</strong> Microsoft tarafından aktif olarak geliştirildiği için düzenli güncellemeler alır ve büyük bir topluluk tarafından desteklenir.</li>
+  </ul>
+</div>
+
 
       <div className="mt-8 bg-white p-2 border-2 border-custom-gray">
         <h3 className="flex items-center text-xl font-semibold text-custom-blue mb-2">

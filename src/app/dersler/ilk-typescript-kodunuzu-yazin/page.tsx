@@ -6,6 +6,7 @@ import Subtitle from "@/components/common/SubTitle";
 import SummaryBox from "@/components/common/SummaryBox";
 import { CircleCheck, Code } from "lucide-react";
 import React from "react";
+import Output from "@/components/common/Output";
 
 export const metadata: Metadata = {
   title: "İlk TypeScript Kodunuzu Yazın",
@@ -60,8 +61,8 @@ console.log(selamVer("Ahmet"));`;
   return (
     <div className="container mx-auto p-6">
       <PageTitle title="İlk TypeScript Kodunuzu Yazın" />
-      <Subtitle text="TypeScript ile ilk uygulamanızı oluşturun." />
-      <MainParagraph text="TypeScript ile basit bir uygulama oluşturmayı adım adım öğrenin." />
+<Subtitle text="TypeScript ile güçlü ve güvenli kod yazmaya başlayın!" />
+<MainParagraph text="TypeScript'in gücünü keşfetmeye hazır mısınız? Bu bölümde, ilk TypeScript dosyanızı oluşturacak, temel sözdizimini öğrenecek ve kodlarınızı nasıl derleyebileceğinizi adım adım göreceksiniz. Hemen başlayın ve modern yazılım geliştirmeye sağlam bir adım atın!" />
 
       {/* Adım 1: Yeni Bir Dosya Oluşturma */}
       <div className="mt-8 bg-white p-2 border-2 border-custom-gray">
@@ -72,6 +73,9 @@ console.log(selamVer("Ahmet"));`;
         <p><code>index.ts</code> adında bir dosya oluşturun ve aşağıdaki kodu yazın:</p>
         <CodeBlock code={sampleCode} />
       </div>
+      <Output title="Output" content="Merhaba, Ahmet! TypeScript öğrenmeye hoş geldin.
+" isCode={true} />
+
 
       {/* Adım 2: TypeScript'i JavaScript'e Dönüştürme */}
       <div className="mt-8 bg-white p-2 border-2 border-custom-gray">

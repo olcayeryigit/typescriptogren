@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import PageTitle from "@/components/common/PageTitle";
 import React from "react";
 import FAQItem from "@/components/sss/FAQItem";
+import MainParagraph from "@/components/common/MainParagraph";
 
 export const metadata: Metadata = {
   title: "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",
@@ -31,12 +32,13 @@ const FAQPage = () => {
 
   
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto py-3 px-5 md:py-6">
 
   
-      <PageTitle title="TypeScript Sıkça Sorulan Sorular (SSS)" />
+<PageTitle title="TypeScript Hakkında Sıkça Sorulan Sorular (SSS)" />
+<MainParagraph text="TypeScript ve modern yazılım geliştirme hakkında merak ettiklerinizi keşfedin! TypeScript'in avantajları, en iyi kullanım senaryoları, hata ayıklama yöntemleri ve performans ipuçları gibi konularda sıkça sorulan soruları burada yanıtlıyoruz." />
 
-      <ul className="space-y-4">
+      <ul className="space-y-4 p-6">
         {faqs.map((faq, index) => (
           <FAQItem key={index} question={faq.question} answer={faq.answer} />
         ))}

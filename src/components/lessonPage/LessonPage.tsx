@@ -1,31 +1,28 @@
 "use client";
 import React, { useState } from 'react';
-import BlogCard from './BlogCard';
-import { blogPosts } from '@/data/blogPosts';
+import LessonCard from './LessonCard';
+import { dersler } from '@/data/dersler';
 
-const BlogPage = () => {
+const LessonPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 4; // Her sayfada 4 blog yazısı gösterilecek
+  const lessonsPerPage = 4; // Her sayfada 4 ders gösterilecek
 
-  // Sayfaya göre blogları filtrele
-  const indexOfLastPost = currentPage * postsPerPage;
-  const indexOfFirstPost = indexOfLastPost - postsPerPage;
-  const currentPosts = blogPosts.slice(indexOfFirstPost, indexOfLastPost);
+  // Sayfaya göre dersleri filtrele
+  const indexOfLastLesson = currentPage * lessonsPerPage;
+  const indexOfFirstLesson = indexOfLastLesson - lessonsPerPage;
+  const currentLessons = dersler.slice(indexOfFirstLesson, indexOfLastLesson);
 
   // Sayfa sayısını hesapla
-  const totalPages = Math.ceil(blogPosts.length / postsPerPage);
+  const totalPages = Math.ceil(dersler.length / lessonsPerPage);
 
   // Sayfa değiştirme fonksiyonu
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
     <div>
-       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {currentPosts.map((post, index) => (
-          <BlogCard key={index} post={post} />
-        ))}
-      </div>
-     
+      {currentLessons.map((ders, index) => (
+        <LessonCard key={index} lesson={ders} index={indexOfFirstLesson + index} />
+      ))}
 
       {/* Sayfalama */}
       <div className="flex justify-center gap-4 mt-6">
@@ -53,4 +50,4 @@ const BlogPage = () => {
   );
 };
 
-export default BlogPage;
+export default LessonPage;

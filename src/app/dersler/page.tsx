@@ -1,9 +1,9 @@
 import React from "react";
-import LessonCard from "@/components/lessonPage/LessonCard";
 import PageTitle from "@/components/common/PageTitle";
 import type { Metadata } from "next";
 import Script from "next/script";
-import { dersler } from "@/data/dersler";
+import MainParagraph from "@/components/common/MainParagraph";
+import LessonPage from "@/components/lessonPage/LessonPage";
 
 export const metadata: Metadata = {
   title: "TypeScript Dersleri – Başlangıçtan İleri Seviyeye Öğrenin",
@@ -83,14 +83,10 @@ const DerslerPage = () => {
   dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 />
 
-      <div className="container mx-auto p-6">
-        <PageTitle title="TypeScript Dersleri" />
-
-        <div>
-          {dersler.map((ders, index) => (
-            <LessonCard key={index} lesson={ders} index={index} />
-          ))}
-        </div>
+<div className="container mx-auto py-3 px-5 md:py-6">
+<PageTitle title="TypeScript Dersleri" />
+        <MainParagraph text="TypeScript, JavaScript'in tip güvenli bir versiyonudur ve kodunuzu daha hatasız, okunaklı ve ölçeklenebilir hale getirir. Bu derslerde, TypeScript'in temel sözdiziminden gelişmiş kullanım senaryolarına kadar adım adım öğrenerek, daha sağlam ve profesyonel projeler geliştirmeyi keşfedeceksiniz. "/>
+  <LessonPage/>
       </div>
     </>
   );

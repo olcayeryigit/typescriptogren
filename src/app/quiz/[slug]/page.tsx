@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const Page = ({ params }: PageProps) => {
   return (
-    <div className="container mx-auto p-6">
+    <div className="container mx-auto py-3 px-5 md:py-6">
       <TestPage params={params} />
     </div>
   );

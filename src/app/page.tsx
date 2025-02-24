@@ -71,9 +71,9 @@ export default function Page() {
   return (
     <>
 
-      <div className="container mx-auto p-6">
-        <PageTitle title="TypeScript Öğrenmeye Başlayın!" />
-        <MainParagraph text="TypeScript hakkında bilgi edinmek ve daha verimli kod yazmak için doğru yerdesiniz." />
+      <div className="container mx-auto py-3 px-5 md:py-6">
+        <PageTitle title="TypeScript ile Modern ve Tip Güvenli Kodlama" />
+        <MainParagraph text="TypeScript dünyasına adım atın ve daha güvenilir, okunabilir ve ölçeklenebilir kodlar yazmayı öğrenin!" />
         <HomeCard cardData={cardData} />
       </div>
     </>

@@ -5,6 +5,7 @@ import Subtitle from "@/components/common/SubTitle";
 import SummaryBox from "@/components/common/SummaryBox";
 import { Terminal, Wrench } from "lucide-react";
 import React from "react";
+import MainParagraph from "@/components/common/MainParagraph";
 
 export const metadata: Metadata = {
   title: "TypeScript Kurulumu ve İlk Proje",
@@ -52,7 +53,9 @@ const TypeScriptKurulumu = () => {
   return (
     <div className="container mx-auto p-6">
       <PageTitle title="TypeScript Kurulumu" />
-      <Subtitle text="Bilgisayarınıza TypeScript'i nasıl kuracağınızı öğrenin." />
+<Subtitle text="Bilgisayarınıza TypeScript'i kurun ve projelerinizi geliştirmeye başlayın!" />
+<MainParagraph text="TypeScript, modern web ve yazılım geliştirme süreçlerini daha güçlü ve güvenli hale getiren popüler bir dildir. Kurulumu ise oldukça basittir! Bu rehberde, Windows işletim sistemine TypeScript’in nasıl kurulacağını adım adım öğreneceksiniz. Ayrıca, TypeScript derleyicisini (tsc) nasıl çalıştıracağınızı ve projelerinize nasıl entegre edebileceğinizi keşfedeceksiniz. Hemen başlayın ve kodlarınızı daha güvenli hale getirin!" />
+
 
       {/* Node.js ve npm Kontrolü */}
       <div className="mt-8 bg-white p-2 border-2 border-custom-gray">

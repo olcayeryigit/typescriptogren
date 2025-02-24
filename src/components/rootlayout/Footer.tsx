@@ -6,7 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-custom-gray text-white py-10 mt-12">
+    <footer className="bg-custom-gray text-white py-6 md:py-10 mt-4 md:mt-12">
       <div className="container mx-auto px-6 md:px-12 text-center">
         
         {/* Başlık */}
@@ -16,36 +16,33 @@ const Footer: React.FC = () => {
 
         {/* Navigasyon Menüsü */}
         <nav className="mb-8">
-          <ul className="flex flex-wrap justify-center gap-6 text-sm text-gray-300">
-            <li>
-              <Link href="/" className="hover:text-white transition">Ana Sayfa</Link>
-            </li>
-            <li>
-              <Link href="/dersler" className="hover:text-white transition">Dersler</Link>
-            </li>
-            <li>
-              <Link href="/quiz" className="hover:text-white transition">Quizler</Link>
-            </li>
-            <li>
-              <Link href="/kaynaklar" className="hover:text-white transition">Kaynaklar</Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:text-white transition">Blog</Link>
-            </li>
-            <li>
-              <Link href="/iletisim" className="hover:text-white transition">İletişim</Link>
-            </li>
-            <li>
-              <Link href="/sik-sorulan-sorular" className="hover:text-white transition">SSS</Link>
-            </li>
-            <li>
-              <Link href="/gizlilik-politikasi" className="hover:text-white transition">Gizlilik Politikası</Link>
-            </li>
-            <li>
-              <Link href="/cerez-politikasi" className="hover:text-white transition">Çerez Politikası</Link>
-            </li>
-          </ul>
-        </nav>
+   
+  <ul className="flex flex-wrap justify-center gap-6 text-sm text-gray-300">
+    {[
+      { href: "/", label: "Ana Sayfa" },
+      { href: "/dersler", label: "Dersler" },
+      { href: "/quiz", label: "Quizler" },
+      { href: "/kaynaklar", label: "Kaynaklar" },
+      { href: "/blog", label: "Blog" },
+      { href: "/iletisim", label: "İletişim" },
+      { href: "/sik-sorulan-sorular", label: "SSS" },
+      { href: "/gizlilik-politikasi", label: "Gizlilik Politikası" },
+      { href: "/cerez-politikasi", label: "Çerez Politikası" }
+    ].map((item, index) => (
+      <li key={index} className="group relative">
+        <Link
+          href={item.href}
+          className="transition-all text-gray-300 hover:text-white  rounded-lg group-hover:text-custom-blue-6"
+          aria-label={`${item.label} Sayfası`}
+        >
+          {item.label}
+        </Link>
+        {/* Alt Çizgi Efekti */}
+        <div className="absolute bottom-0 left-0 w-0 h-1 bg-custom-blue-6 group-hover:w-full transition-all duration-300"></div>
+      </li>
+    ))}
+  </ul>
+</nav>
 
         {/* Sosyal Medya Bağlantıları */}
         <div className="flex justify-center space-x-6 mb-8">

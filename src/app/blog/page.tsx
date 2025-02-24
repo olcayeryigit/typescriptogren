@@ -1,6 +1,7 @@
-import { blogPosts } from '@/data/blogPosts'
-import BlogCard from '@/components/blog/BlogCard'
 import type { Metadata } from 'next'
+import MainParagraph from '@/components/common/MainParagraph'
+import PageTitle from '@/components/common/PageTitle'
+import BlogPage from '@/components/blog/BlogPage'
 
 export const metadata: Metadata = {
   title: 'Blog | My Website',
@@ -38,14 +39,11 @@ export const metadata: Metadata = {
 
 const page = () => {
   return (
-    <div className='container mx-auto'>
-      <ul className="space-y-6">
-        {blogPosts.map((post) => (
-          <li key={post.id}>
-            <BlogCard post={post} />
-          </li>
-        ))}
-      </ul>
+    <div className="container mx-auto py-3 px-5 md:py-6">
+  <PageTitle title="Yazılım Dünyasında Güncel Trendler: TypeScript ve Ötesi"/>  
+<MainParagraph text="TypeScript başta olmak üzere, JavaScript, Python, Rust, Go ve diğer popüler programlama dillerindeki en yeni gelişmeleri keşfedin! Güncellenen sürümler, performans iyileştirmeleri ve en iyi geliştirme pratikleriyle yazılım dünyasındaki yenilikleri yakalayın. Bu blogda, modern yazılım trendleri, frameworkler ve en etkili kodlama teknikleriyle ilgili güncel içerikler bulabilirsiniz."/>
+
+ <BlogPage/>
     </div>
   )
 }

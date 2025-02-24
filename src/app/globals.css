@@ -1,18 +1,21 @@
 
 
 
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-
 body {
   font-family: 'Inter', sans-serif;
   box-sizing: border-box;
-  background-color:rgb(253, 255, 255) ;
+  background-color: rgb(253, 255, 255);
 }
+
+
 
 @layer utilities {
   .text-custom-gray {
@@ -43,6 +46,12 @@ body {
     color: #4f8dbc;
   }
 
+  .bg-custom-blue-3 {
+    background-color: #dce9f3;
+  }
+  .text-custom-blue-4 {
+    color: #dce0e3;
+  }
 }
 
 
@@ -57,16 +66,44 @@ body {
 pre {
   background-color: #000; /* Siyah arka plan */
   color: #fff; /* Beyaz yazı */
-  font-family: "Fira Code", monospace; /* Kod editörü fontu */
-  padding: 16px;
-  overflow-x: auto;
-  white-space: pre-wrap;
+  font-family: 'JetBrains Mono', monospace;
+  padding: 12px; /* Küçük ekranlar için padding */
+  overflow-x: auto; /* Yatay kaydırma */
+  white-space: pre-wrap; /* Metin taşarsa satır sonlarına kırılacak */
+  font-size: 13px; /* Küçük ekranlar için font boyutu */
+  font-weight: 500;
 }
+
+@media (min-width: 640px) {
+  pre {
+    padding: 15px; /* Orta boyutlu ekranlar için padding */
+    font-size: 15px; /* Orta boyutlu ekranlar için font boyutu */
+  }
+}
+
+@media (min-width: 768px) {
+  pre {
+    padding: 16px; /* Daha büyük ekranlar için padding */
+    font-size: 16px; /* Daha büyük ekranlar için font boyutu */
+  }
+}
+
+@media (min-width: 1024px) {
+  pre {
+    padding: 17px; /* Çok büyük ekranlar için padding */
+    font-size: 17px; /* Çok büyük ekranlar için font boyutu */
+  }
+}
+
 
 code {
-  font-family: inherit;
+  font-family: 'JetBrains Mono', monospace;
 }
 
+
+
 .comment {
-  color: #00ff00; /* Yeşil yorum satırları */
+  font-style: italic;
+  color: #6a737d; /* GitHub stili gri tonu */
 }
+

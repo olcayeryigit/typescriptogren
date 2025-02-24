@@ -24,11 +24,13 @@ export const metadata: Metadata = {
 const Page = () => {
   return (
     <div className="container mx-auto p-6">
-      <PageTitle title="TypeScript Union ve Intersection Types" />
-      <Subtitle text="TypeScript'te farklı veri türlerini nasıl bir arada kullanabileceğinizi öğrenin." />
-      <MainParagraph text="TypeScript'te farklı veri türlerini nasıl bir arada kullanabileceğinizi öğrenin." />
+   <PageTitle title="TypeScript Union ve Intersection Türleri" />
+<Subtitle text="TypeScript'te veri türlerini birleştirerek güçlü ve esnek yapılar oluşturmayı keşfedin." />
+<MainParagraph text="TypeScript'te, farklı veri türlerini bir arada kullanarak daha esnek ve güçlü türler oluşturabiliriz. Union ve Intersection türleri ile bu yapıları nasıl kullanabileceğinizi öğrenin." />
 
-      <h3 className="font-bold mt-4 text-custom-gray">1. Union Type</h3>
+
+<div className="mt-6 bg-white p-2 border-2 border-custom-gray">
+      <h3 className="font-bold  text-custom-blue">1. Union Type</h3>
       <p className="text-custom-gray">
         <strong>Union Type</strong>, bir değişkenin birden fazla türde olmasına izin verir.
       </p>
@@ -37,9 +39,12 @@ const Page = () => {
 skor = 95;      // ✅ Geçerli
 skor = "A+";    // ✅ Geçerli`}
       />
+</div>
 
-      <h3 className="font-bold mt-4 text-custom-gray">2. Intersection Type</h3>
-      <p className="text-custom-gray">
+
+<div className="mt-6 bg-white p-2 border-2 border-custom-gray">
+      <h3 className="font-bold text-custom-blue">2. Intersection Type</h3>
+      <p className="text-custom-gray ">
         <strong>Intersection Type</strong>, birden fazla türü birleştirerek daha karmaşık veri yapıları oluşturmanıza olanak tanır.
       </p>
       <CodeBlock
@@ -58,7 +63,7 @@ const calisan: KisiCalisan = {
   sirket: "OpenAI"
 };`}
       />
-
+</div>
       <SummaryBox text="Union Types, değişkenlerin birden fazla türde olmasını sağlar. Intersection Types ise iki veya daha fazla türü birleştirerek esnek veri modelleri oluşturmanıza yardımcı olur." />
     </div>
   );
