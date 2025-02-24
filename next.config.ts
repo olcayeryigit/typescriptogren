@@ -1,10 +1,10 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  async redirects() {
+  async redirects(): Promise<{ source: string; has?: any[]; destination: string; permanent: boolean }[]> {
     return [
       {
-        source: "/:path*",  // Tüm yolları kapsar
+        source: "/:path*", // Tüm yolları kapsar
         has: [
           {
             type: "host",
