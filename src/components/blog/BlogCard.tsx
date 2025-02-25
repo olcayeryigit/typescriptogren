@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MessageSquareText, ArrowRight } from "lucide-react";
+import { MessageSquareText } from "lucide-react";
 import Image from "next/image";
 import { formatDateToTurkish } from "@/data/blogPosts";
 

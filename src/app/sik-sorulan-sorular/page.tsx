@@ -4,7 +4,7 @@ import PageTitle from "@/components/common/PageTitle";
 import React from "react";
 import FAQItem from "@/components/sss/FAQItem";
 import MainParagraph from "@/components/common/MainParagraph";
-import faqs from "@/data/Sorular";
+import faqs from "@/data/sorular";
 
 export const metadata: Metadata = {
   title: "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",

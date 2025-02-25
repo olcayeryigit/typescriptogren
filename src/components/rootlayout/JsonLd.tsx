@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { blogPosts } from "@/data/blogPosts"; // blogPosts verisini içe aktar
 import { quizler } from "@/data/quiz";
 import { dersler } from "@/data/dersler";
-import faqs from "@/data/Sorular";
+import faqs from "@/data/sorular";
 const getJsonLdData = (pathname: string) => {
 
 
