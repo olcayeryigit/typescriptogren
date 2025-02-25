@@ -4,6 +4,7 @@ import { getBlogPostBySlug } from '@/data/blogPosts'
 import PageTitle from '../common/PageTitle';
 import MainParagraph from '../common/MainParagraph';
 import Subtitle from '../common/SubTitle';
+import Image from 'next/image';
 
 type BlogPostProps = {
   slug: string // Slug parametresini prop olarak alıyoruz
@@ -25,12 +26,57 @@ export default function BlogPost({ slug }: BlogPostProps) {
   }
 
   return (
-    <div className='container mx-auto p-6'>
-      <PageTitle title={blogPost.title} />
-      <Subtitle text={blogPost.description}/>
-      <p>{blogPost.content}</p>
-      <p className="text-end text-xs text-gray-300 ">{blogPost.publishedAt}</p>
+<div className="container mx-auto max-w-4xl p-6">
+  {/* Kapak Görseli */}
+  <div className="w-full h-64 md:h-96 relative">
+    <Image
+      src="/images/logo.png"
+      alt="Blog Cover"
+      fill
+      className="object-cover rounded-lg"
+    />
+  </div>
 
+  {/* Başlık ve Meta Bilgiler */}
+  <div className="mt-6 text-center">
+    <h1 className="text-3xl md:text-5xl font-extrabold text-custom-gray tracking-tight">
+      {blogPost.title}
+    </h1>
+
+  </div>
+
+  {/* Açıklama */}
+  <h2 className="text-xl md:text-2xl font-semibold text-custom-blue mt-6 text-center">
+    {blogPost.description}
+  </h2>
+
+  {/* İçerik */}
+  <div className="text-sm md:text-md text-custom-gray leading-relaxed mt-6">
+    <p>{blogPost.content}</p>
+  </div>
+
+  {/* Yazar Bilgisi (İsteğe Bağlı) */}
+  <div className="flex items-center justify-between items-center mt-12 border-t pt-6">
+   <div className='flex items-center gap-4'>
+    <Image
+      src="/images/logo.png"
+      alt="Author"
+      width={50}
+      height={50}
+      className=" object-contain"
+    />
+    <div>
+      <p className="text-sm md:text-md font-semibold">Yazar: TypeScriptOgren</p>
+      <p className="text-sm text-gray-500">Teknoloji & Yazılım Yazarı</p>
     </div>
+
+   
+    </div>  <p className="text-md md:text-lg text-gray-500 mt-2">
+      {blogPost.publishedAt} 
+    </p>
+  </div>
+</div>
+
+
   )
 }
