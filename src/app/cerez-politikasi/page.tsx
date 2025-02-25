@@ -1,98 +1,87 @@
-import React from "react";
 import { Metadata } from "next";
+import Link from "next/link";
+import React from "react";
 
 export const metadata: Metadata = {
-  title: "Çerez Politikası | TypeScript Öğren",
-  description: "Çerez politikamız hakkında detaylı bilgi edinin. Kullanıcı deneyimini geliştirmek ve reklamları kişiselleştirmek amacıyla çerezleri nasıl kullandığımızı öğrenin.",
+  title: "Gizlilik Politikası | TypeScript Öğren",
+  description:
+    "TypeScript Öğren olarak kullanıcı verilerinin gizliliğini önemsiyoruz. Verilerin nasıl işlendiği, çerezler, güvenlik önlemleri ve gizlilik politikası hakkında bilgi edinin.",
   alternates: {
-    canonical: "https://www.typescriptogren.com/cerez-politikasi"
-    },
+    canonical: "https://www.typescriptogren.com/gizlilik-politikasi"
+  },
   openGraph: {
-    title: "Çerez Politikası | TypeScript Öğren",
-    description: "Çerez kullanımımız ve nasıl yönetileceği hakkında ayrıntılı bilgiye buradan ulaşabilirsiniz.",
-    url: "https://typescriptogren.com/cerez-politikasi",
+    title: "Gizlilik Politikası | TypeScript Öğren",
+    description:
+      "Kullanıcı verilerinin nasıl işlendiği, çerez kullanımı, güvenlik önlemleri ve gizlilik politikamız hakkında detaylı bilgi alın.",
+    url: "https://www.typescriptogren.com/gizlilik-politikasi",
     siteName: "TypeScript Öğren",
     type: "website",
   },
 };
 
-
-
-const CerezPolitikasi = () => {
-  return (
-    <>
-    
-
-    <div className="container mx-auto py-3 px-4 md:py-6">
-  <div className="bg-white border p-6">
-    <h1 className="text-2xl md:text-3xl font-bold text-custom-blue mb-4">Çerez Politikası</h1>
-    <p className="text-base md:text-lg text-gray-700 mb-4">
-      Bu web sitesi, kullanıcı deneyimini geliştirmek ve reklamları kişiselleştirmek amacıyla çerezleri kullanmaktadır. 
-      Çerezlerin nasıl kullanıldığı ve nasıl devre dışı bırakılabileceği aşağıda açıklanmaktadır.
-    </p>
-    <div className="space-y-6">
-      <section>
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800">1. Çerez Nedir?</h2>
-        <p className="text-base md:text-lg text-gray-700 mt-2">
-          Çerezler, bir web sitesini ziyaret ettiğinizde tarayıcınıza kaydedilen küçük metin dosyalarıdır. Kullanıcı tercihlerini hatırlamak, 
-          oturum yönetimi yapmak ve reklamları özelleştirmek için kullanılır.
+const GizlilikPolitikasi = () => {
+  return (   
+    <div className="container mx-auto py-4 px-4 md:py-6">
+      <div className="bg-white border p-6">
+        <h1 className="text-2xl md:text-3xl font-bold text-custom-blue mb-4">Gizlilik Politikası</h1>
+        <p className="text-base md:text-lg text-gray-700 mb-4">
+          Bu web sitesi, kullanıcı gizliliğini korumayı taahhüt eder. Toplanan veriler, kullanım amaçları ve haklarınız hakkında
+          detaylı bilgiyi aşağıda bulabilirsiniz.
         </p>
-      </section>
 
-      <section>
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800">2. Hangi Çerezleri Kullanıyoruz?</h2>
-        <ul className="list-disc pl-6 mt-2 text-gray-700 space-y-2">
-          <li><strong>Zorunlu Çerezler</strong>: Sitenin temel işlevlerini sağlamak için gereklidir.</li>
-          <li><strong>Analitik Çerezler</strong>: Google Analytics gibi araçlar aracılığıyla kullanıcı davranışlarını analiz eder.</li>
-          <li><strong>Reklam Çerezleri</strong>: Google AdSense tarafından kişiselleştirilmiş reklamlar sunmak için kullanılır.</li>
-        </ul>
-      </section>
+        <div className="space-y-6">
+          <section>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-800">1. Hangi Verileri Topluyoruz?</h2>
+            <ul className="list-disc pl-6 mt-2 text-gray-700 space-y-2">
+              <li><strong>Zorunlu Veriler</strong>: Sitenin temel işlevlerini sağlamak için toplanır.</li>
+              <li><strong>Analitik Veriler</strong>: Kullanıcı deneyimini iyileştirmek için Google Analytics gibi araçlarla analiz edilir.</li>
+              <li><strong>Reklam Verileri</strong>: Google AdSense tarafından kişiselleştirilmiş reklamlar göstermek için kullanılır.</li>
+            </ul>
+          </section>
 
-      <section>
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800">3. Çerezleri Nasıl Yönetebilirsiniz?</h2>
-        <p className="text-base md:text-lg text-gray-700 mt-2">
-          Çerezleri tarayıcı ayarlarınızdan kontrol edebilir veya devre dışı bırakabilirsiniz. Tarayıcınıza bağlı olarak 
-          çerezleri tamamen kapatma veya belirli çerezleri engelleme seçenekleri sunulmaktadır.
-        </p>
-      </section>
+          <section>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-800">2. Çerezler ve Takip Teknolojileri</h2>
+            <p className="text-base md:text-lg text-gray-700 mt-2">
+              Web sitemiz, kullanıcı deneyimini geliştirmek ve içerikleri kişiselleştirmek amacıyla çerezleri kullanmaktadır. 
+              Çerezleri tarayıcı ayarlarınızdan kontrol edebilir veya devre dışı bırakabilirsiniz.
+            </p>
+          </section>
 
-      <section>
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800">4. Çerezlerin Devre Dışı Bırakılması</h2>
-        <p className="text-base md:text-lg text-gray-700 mt-2">
-          Çerezleri devre dışı bırakmak için aşağıdaki bağlantıları ziyaret edebilirsiniz:
-        </p>
-        <ul className="mt-2 space-y-2">
-          <li>
-            <a href="https://support.google.com/chrome/answer/95647?hl=tr" target="_blank" rel="noopener noreferrer" className="text-custom-blue font-semibold hover:underline">
-              Google Chrome Çerez Ayarları
-            </a>
-          </li>
-          <li>
-            <a href="https://support.mozilla.org/tr/kb/cerezleri-engelleme" target="_blank" rel="noopener noreferrer" className="text-custom-blue font-semibold hover:underline">
-              Mozilla Firefox Çerez Ayarları
-            </a>
-          </li>
-          <li>
-            <a href="https://support.microsoft.com/tr-tr/help/17442/windows-internet-explorer-delete-manage-cookies" target="_blank" rel="noopener noreferrer" className="text-custom-blue font-semibold hover:underline">
-              Internet Explorer Çerez Ayarları
-            </a>
-          </li>
-        </ul>
-      </section>
+          <section>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-800">3. Üçüncü Taraf Bağlantılar</h2>
+            <p className="text-base md:text-lg text-gray-700 mt-2">
+              Web sitemiz, üçüncü taraf web sitelerine yönlendiren bağlantılar içerebilir. Ancak, bu sitelerin gizlilik politikalarından 
+              sorumlu değiliz.
+            </p>
+          </section>
 
-      <section>
-        <h2 className="text-xl md:text-2xl font-semibold text-gray-800">5. Güncellemeler</h2>
-        <p className="text-base md:text-lg text-gray-700 mt-2">
-          Çerez politikamız zaman zaman güncellenebilir. Güncellemeler hakkında kullanıcılarımızı bilgilendirmek için 
-          bu sayfa düzenli olarak yenilenecektir.
-        </p>
-      </section>
+          <section>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-800">4. Kişisel Verilerin Güvenliği</h2>
+            <p className="text-base md:text-lg text-gray-700 mt-2">
+              Kullanıcı bilgilerinin güvenliğini sağlamak için gerekli teknik ve idari önlemler alınmaktadır. Ancak, internet üzerinden 
+              aktarılan bilgilerin tamamen güvenli olduğunu garanti edemeyiz.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-800">5. Gizlilik Politikası Güncellemeleri</h2>
+            <p className="text-base md:text-lg text-gray-700 mt-2">
+              Gizlilik politikamız zaman zaman güncellenebilir. Güncellemeler hakkında kullanıcılarımızı bilgilendirmek amacıyla 
+              bu sayfa düzenli olarak yenilenecektir.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl md:text-2xl font-semibold text-gray-800">6. İletişim</h2>
+            <p className="text-base md:text-lg text-gray-700 mt-2">
+              Gizlilik politikamız hakkında sorularınız için aşağıdaki bağlantıyı ziyaret edebilirsiniz:<br />
+              - <Link href="/iletisim" className="text-custom-blue font-semibold hover:underline">İletişim Sayfası</Link>
+            </p>
+          </section>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-    </>
   );
 };
 
-export default CerezPolitikasi;
+export default GizlilikPolitikasi;

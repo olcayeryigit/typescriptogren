@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { blogPosts } from "@/data/blogPosts"; // blogPosts verisini içe aktar
 import { quizler } from "@/data/quiz";
 import { dersler } from "@/data/dersler";
-
+import faqs from "@/data/Sorular";
 const getJsonLdData = (pathname: string) => {
 
 
@@ -21,7 +21,7 @@ const getJsonLdData = (pathname: string) => {
       "@context": "https://schema.org",
       "@type": "Course",
       "name": ders.baslik,
-      "url": `https://your-website.com/dersler/${ders.slug}`,
+      "url": `https://www.typescriptogrenm/dersler/${ders.slug}`,
       "description": ders.aciklama,
       "provider": {
         "@type": "Organization",
@@ -45,42 +45,56 @@ const getJsonLdData = (pathname: string) => {
     const post = blogPosts.find(post => post.slug === slug);
 
     if (post) {
-      return {
+      return{
         "@context": "https://schema.org",
         "@type": "BlogPosting",
-        "headline": post.title,
-        "url": `https://your-website.com/blog/${post.slug}`,
+        "headline": post?.title || "TypeScript Öğren - Blog Post",
+        "description": post?.description || "Bu blog yazısını okuyun.",
+        "url": `https://www.typescriptogren.com/blog/${post?.slug}`,
         "author": {
-          "@type": "Person",
-          "name": "Adınız Soyadınız",
-          "url": "https://your-website.com"
+          "@type": "Organization",
+          "name": "TypeScript Öğren",
+          "url": "https://www.typescriptogren.com"
         },
-        "datePublished": post.publishedAt,
-        "description": post.description,
-      };
+        "publisher": {
+          "@type": "Organization",
+          "name": "TypeScript Öğren",
+          "url": "https://www.typescriptogren.com",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.typescriptogren.com/images/logo.png"
+          }
+        },
+        "datePublished": post?.publishedAt,
+        "dateModified":  post?.publishedAt,
+        "image": post?.image ,
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": `https://www.typescriptogren.com/blog/${post?.slug}`
+        },
+        "articleSection": "Genel",
+        "keywords": ["TypeScript", "JavaScript", "Yazılım", "Blog"]
+      }      
+      
     }
   }
 
 
   if (pathname.startsWith("/quiz/")) {
-    const slug = pathname.split("/quiz/")[1]; // slug kısmını al
-
-    // Burada slug'ı kullanarak quiz verisini bulup JSON-LD'yi oluşturabilirsiniz
-    const quiz = quizler.find(quiz => quiz.slug === slug);
-
-    if (quiz) {
+    const slug = pathname.split("/quiz/")[1]; // "something" kısmını al
+  
+    if (slug && !slug.includes("/")) { // slug varsa ve içinde ekstra "/" yoksa devam et
       return {
         "@context": "https://schema.org",
-        "@type": "Quiz",
-        "name": quiz.title,
-        "url": `https://your-website.com/quiz/${quiz.slug}`,
-        "description": quiz.description,
-        "author": {
-          "@type": "Person",
-          "name": "Adınız Soyadınız",
-          "url": "https://your-website.com"
-        },
-        "mainEntityOfPage": `https://your-website.com/quiz/${quiz.slug}`,
+  "@type": "Quiz",
+  "name": "TypeScript Quiz - Test",
+  "description": "TypeScript konularını öğrenirken, bilginizi pekiştirmenize ve geliştirmenize yardımcı olacak zorlu ve etkileşimli quizler.",
+  "author": {
+    "@type": "Organization",
+    "name": "TypeScript Öğren",
+    "url": "https://www.typescriptogren.com"
+  },
+  "mainEntityOfPage": "https://www.typescriptogren.com/quiz"
       };
     }
   }
@@ -107,34 +121,13 @@ const getJsonLdData = (pathname: string) => {
           "name": "TypeScript Öğren",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://www.typescriptogren.com/logo.jpg"
+            "url": "https://www.typescriptogren.com/images/logo.png"
           }
         },
-        "openGraph": {
-          "title": "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
-          "description": "TypeScript öğrenmeye başla! Modern JavaScript’in avantajlarını keşfet, güvenli kod yaz ve projelerini geliştir.",
-          "url": "https://www.typescriptogren.com/",
-          "siteName": "TypeScript Öğren",
-          "images": [
-            {
-              "url": "https://www.typescriptogren.com/images/og-image.jpg",
-              "width": 1200,
-              "height": 630,
-              "alt": "TypeScript Öğren – Modern JavaScript ve Güvenli Kodlama"
-            }
-          ],
-          "locale": "tr_TR",
-          "type": "website"
-        },
-        "twitter": {
-          "card": "summary_large_image",
-          "site": "@typescriptogren",
-          "creator": "@typescriptogren",
-          "title": "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
-          "description": "TypeScript öğrenmeye başla! Modern JavaScript’in avantajlarını keşfet, güçlü ve güvenli kod yaz.",
-          "images": ["https://www.typescriptogren.com/images/og-image.jpg"]
-        },
-        "instagram:site": "https://www.instagram.com/typescriptogren"
+        "sameAs": [
+          "https://twitter.com/typescriptogren",
+          "https://www.instagram.com/typescriptogren"
+        ]
       };
 
     case "/dersler":
@@ -165,195 +158,90 @@ const getJsonLdData = (pathname: string) => {
             }
           ]
         },
-        "openGraph": {
-          "title": "TypeScript Dersleri – Temel ve İleri Seviye Derslerle TypeScript Öğren",
-          "description": "TypeScript dilinin temellerinden ileri seviyeye kadar öğrenebileceğiniz kapsamlı dersler.",
-          "url": "https://www.typescriptogren.com/dersler",
-          "siteName": "TypeScript Öğren",
-          "images": [
-            {
-              "url": "https://www.typescriptogren.com/images/og-dersler.jpg",
-              "width": 1200,
-              "height": 630,
-              "alt": "TypeScript Dersleri"
-            }
-          ],
-          "locale": "tr_TR",
-          "type": "website"
-        }
-      };
+        "dersler": {
+          "@type": "ItemList",
+          "name": "TypeScript Dersleri Listesi",
+          "description": "TypeScript öğrenmeye başlayın! Aşağıda temel ve ileri seviye dersler bulunmaktadır.",
+          "itemListElement": dersler.map((ders, index) => ({
+            "@type": "ListItem",
+            "position": index + 1,
+            "name": ders.baslik,
+            "url": ders.link,
+            "description": ders.aciklama,
+          }))
+        }};
       
-
-    
+   
     case "/sik-sorulan-sorular":
       return {
         "@context": "https://schema.org",
-        "@type": "WebPage",
-        "url": "https://www.typescriptogren.com/sik-sorulan-sorular",
-        "name": "TypeScript Sıkça Sorulan Sorular",
-        "description": "TypeScript hakkında en çok merak edilen soruların yanıtlarını burada bulabilirsiniz. TypeScript nedir? Kullanmalı mıyım? Zor mu?",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://www.typescriptogren.com/sik-sorulan-sorular"
-        },
-        "breadcrumb": {
-          "@type": "BreadcrumbList",
-          "itemListElement": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "Ana Sayfa",
-              "item": "https://www.typescriptogren.com/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "Sıkça Sorulan Sorular",
-              "item": "https://www.typescriptogren.com/sik-sorulan-sorular"
-            }
-          ]
-        },
-        "mainEntity": {
-          "@type": "FAQPage",
-          "name": "TypeScript Sıkça Sorulan Sorular",
-          "acceptedAnswer": [
-            {
+        "@graph": [
+          {
+            "@type": "WebPage",
+            "name": "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",
+            "description": "TypeScript hakkında en çok merak edilen soruların yanıtlarını burada bulabilirsiniz. TypeScript nedir? Kullanmalı mıyım? Zor mu?",
+            "url": "https://www.typescriptogren.com/sik-sorulan-sorular",
+            "keywords": [
+              "TypeScript sıkça sorulan sorular", "TypeScript nedir", "TypeScript mi JavaScript mi",
+              "TypeScript avantajları", "TypeScript zor mu", "TypeScript kullanmalı mıyım"
+            ],
+            "inLanguage": "tr",
+            "isPartOf": { "@type": "Website", "name": "TypeScript Öğren", "url": "https://www.typescriptogren.com" }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": faqs.map(faq => ({
               "@type": "Question",
-              "name": "TypeScript nedir?",
+              "name": faq.question,
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "TypeScript, Microsoft tarafından geliştirilen ve JavaScript'in üzerine inşa edilen, statik tür sistemine sahip bir programlama dilidir."
+                "text": faq.answer
               }
-            },
-            {
-              "@type": "Question",
-              "name": "JavaScript ile TypeScript arasındaki fark nedir?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "JavaScript dinamik türlere sahiptir, TypeScript ise statik tür kontrolü yaparak hataları erken aşamada yakalamayı sağlar."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "TypeScript zor mu?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Eğer JavaScript biliyorsanız, TypeScript öğrenmek çok zor değildir. Statik tipler ve derleyici hatalarına alışmak başlangıçta zor gelebilir, ancak uzun vadede yazılım geliştirmeyi kolaylaştırır."
-              }
-            },
-            {
-              "@type": "Question",
-              "name": "TypeScript kullanmalı mıyım?",
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": "Eğer büyük ve ölçeklenebilir bir proje yapıyorsanız veya hataları önceden yakalamak istiyorsanız, TypeScript kullanmanız önerilir."
-              }
-            }
-          ]
-        },
-        "openGraph": {
-          "title": "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",
-          "description": "TypeScript ile ilgili en yaygın sorular ve cevaplar burada! Hemen öğrenmeye başla.",
-          "url": "https://www.typescriptogren.com/sik-sorulan-sorular",
-          "siteName": "TypeScript Öğren",
-          "type": "website"
-        }
+            }))
+          }
+        ]
       };
       
       case "/kaynaklar":
         return {
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [
-              {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Ana Sayfa",
-                "item": "https://www.typescriptogren.com/"
-              },
-              {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Kaynaklar",
-                "item": "https://www.typescriptogren.com/kaynaklar"
-              }
-            ]
-          },
-          "mainEntityOfPage": "https://www.typescriptogren.com/kaynaklar",
-          "name": "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
+          "@type": "Article",
+          "headline": "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
           "description": "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
+          "keywords": [
+            "TypeScript kaynakları", "TypeScript öğren", "TypeScript kursları",
+            "JavaScript geliştirme", "TypeScript dokümantasyon", "TypeScript eğitimleri",
+            "TypeScript resmi kaynakları", "Frontend geliştirme", "Web geliştirme",
+            "En iyi TypeScript kaynakları", "Ücretsiz TypeScript kursları"
+          ],
           "url": "https://www.typescriptogren.com/kaynaklar",
+          "author": {
+            "@type": "Person",
+            "name": "TypeScript Öğren",
+            "url": "https://www.typescriptogren.com"
+          },
           "publisher": {
             "@type": "Organization",
             "name": "TypeScript Öğren",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://www.typescriptogren.com/logo.png"
+              "url": "https://www.typescriptogren.com/images/logo.png",
+              "width": 1200,
+              "height": 630
             }
           },
-          "sameAs": [
-            "https://www.facebook.com/typescriptogren",
-            "https://www.twitter.com/typescriptogren",
-            "https://www.linkedin.com/company/typescriptogren"
-          ],
-          "about": {
-            "@type": "Thing",
-            "name": "TypeScript",
-            "url": "https://www.typescriptlang.org/"
+          "image": {
+            "@type": "ImageObject",
+            "url": "https://www.typescriptogren.com/images/logo.png",
+            "width": 1200,
+            "height": 630
           },
-          "potentialAction": {
-            "@type": "ReadAction",
-            "target": {
-              "@type": "EntryPoint",
-              "urlTemplate": "https://www.typescriptogren.com/kaynaklar"
-            }
-          },
-          "articleBody": [
-            {
-              "@type": "ListItem",
-              "position": 1,
-              "name": "TypeScript Resmi Dokümantasyonu",
-              "url": "https://www.typescriptlang.org/docs/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 2,
-              "name": "TypeScript GitHub Deposu",
-              "url": "https://github.com/microsoft/TypeScript"
-            },
-            {
-              "@type": "ListItem",
-              "position": 3,
-              "name": "TypeScript Handbook (Resmi)",
-              "url": "https://www.typescriptlang.org/docs/handbook/intro.html"
-            },
-            {
-              "@type": "ListItem",
-              "position": 4,
-              "name": "TypeScript Kursu - FreeCodeCamp",
-              "url": "https://www.freecodecamp.org/news/learn-typescript-beginners-guide/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 5,
-              "name": "TypeScript ESLint Kuralları",
-              "url": "https://typescript-eslint.io/"
-            },
-            {
-              "@type": "ListItem",
-              "position": 6,
-              "name": "TypeScript Playground",
-              "url": "https://www.typescriptlang.org/play"
-            },
-            {
-              "@type": "ListItem",
-              "position": 7,
-              "name": "TypeScript Blog",
-              "url": "https://devblogs.microsoft.com/typescript/"
-            }
-          ]
+          "datePublished": "2025-02-25",
+          "dateModified": "2025-02-25",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.typescriptogren.com/kaynaklar"
+          }
         };
         
         
@@ -361,89 +249,36 @@ const getJsonLdData = (pathname: string) => {
           return {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "Bizi Takip Edin! | TypeScript Öğren",
-            "description": "TypeScript öğrenme yolculuğunuzda bizimle ilerleyin. Twitter ve Instagram hesaplarımızdan içeriklerimizi takip edebilirsiniz.",
+            "name": "Bizi Takip Edin!",
+            "description":
+              "TypeScript öğrenme yolculuğunuzda en güncel eğitim içerikleri, ipuçları ve rehberler için bizi Twitter ve Instagram'da takip edin!",
             "url": "https://www.typescriptogren.com/iletisim",
-            "mainEntityOfPage": "https://www.typescriptogren.com/iletisim",
-            "breadcrumb": {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Ana Sayfa",
-                  "item": "https://www.typescriptogren.com/"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "İletişim",
-                  "item": "https://www.typescriptogren.com/iletisim"
-                }
-              ]
+            "publisher": {
+              "@type": "Organization",
+              "name": "TypeScript Öğren",
+              "url": "https://www.typescriptogren.com",
             },
-            "openGraph": {
-              "title": "Bizi Takip Edin! | TypeScript Öğren",
-              "description": "TypeScript ile ilgili güncellemeleri ve dersleri sosyal medya hesaplarımızdan takip edin.",
-              "url": "https://typescriptogren.com/iletisim",
-              "siteName": "TypeScript Öğren",
-              "type": "website"
-            },
-            "twitter": {
-              "card": "summary_large_image",
-              "site": "@typescriptogren",
-              "creator": "@typescriptogren",
-              "title": "Bizi Takip Edin! | TypeScript Öğren",
-              "description": "TypeScript ile ilgili güncellemeleri ve dersleri sosyal medya hesaplarımızdan takip edin.",
-              "images": [
-                "https://www.typescriptogren.com/images/iletisim-og.jpg"
-              ]
-            }
+            "sameAs": [
+              "https://x.com/typescriptogren",
+              "https://www.instagram.com/typescriptogren/"
+            ],
           };
 
           case "/gizlilik-politikasi":
-            return {
+            return{
               "@context": "https://schema.org",
               "@type": "WebPage",
-              "name": "Gizlilik Politikası | TypeScript Öğren",
-              "description": "TypeScript Öğren olarak kullanıcı verilerinin gizliliğini önemsiyoruz. Verilerin nasıl işlendiği, çerezler, güvenlik önlemleri ve gizlilik politikası hakkında bilgi edinin.",
+              "name": "Gizlilik Politikası",
+              "description":
+                "Kullanıcı verilerinin nasıl işlendiği, çerez kullanımı, güvenlik önlemleri ve gizlilik politikamız hakkında detaylı bilgi alın.",
               "url": "https://www.typescriptogren.com/gizlilik-politikasi",
-              "mainEntityOfPage": "https://www.typescriptogren.com/gizlilik-politikasi",
-              "breadcrumb": {
-                "@type": "BreadcrumbList",
-                "itemListElement": [
-                  {
-                    "@type": "ListItem",
-                    "position": 1,
-                    "name": "Ana Sayfa",
-                    "item": "https://www.typescriptogren.com/"
-                  },
-                  {
-                    "@type": "ListItem",
-                    "position": 2,
-                    "name": "Gizlilik Politikası",
-                    "item": "https://www.typescriptogren.com/gizlilik-politikasi"
-                  }
-                ]
+              "publisher": {
+                "@type": "Organization",
+                "name": "TypeScript Öğren",
+                "url": "https://www.typescriptogren.com",
               },
-              "openGraph": {
-                "title": "Gizlilik Politikası | TypeScript Öğren",
-                "description": "Kullanıcı verilerinin nasıl işlendiği, çerez kullanımı, güvenlik önlemleri ve gizlilik politikamız hakkında detaylı bilgi alın.",
-                "url": "https://typescriptogren.com/gizlilik-politikasi",
-                "siteName": "TypeScript Öğren",
-                "type": "website"
-              },
-              "twitter": {
-                "card": "summary_large_image",
-                "site": "@typescriptogren",
-                "creator": "@typescriptogren",
-                "title": "Gizlilik Politikası | TypeScript Öğren",
-                "description": "Kullanıcı verilerinin nasıl işlendiği, çerez kullanımı, güvenlik önlemleri ve gizlilik politikamız hakkında detaylı bilgi alın.",
-                "images": [
-                  "https://www.typescriptogren.com/images/gizlilik-politikasi-og.jpg"
-                ]
-              }
-            };
+};
+
             
             
             case "/sik-sorulan-sorular":
@@ -474,7 +309,7 @@ const getJsonLdData = (pathname: string) => {
                 "openGraph": {
                   "title": "Çerez Politikası | TypeScript Öğren",
                   "description": "Çerez kullanımımız ve nasıl yönetileceği hakkında ayrıntılı bilgiye buradan ulaşabilirsiniz.",
-                  "url": "https://typescriptogren.com/cerez-politikasi",
+                  "url": "https://www.typescriptogren.com/cerez-politikasi",
                   "siteName": "TypeScript Öğren",
                   "type": "website"
                 },
@@ -485,104 +320,124 @@ const getJsonLdData = (pathname: string) => {
                   "title": "Çerez Politikası | TypeScript Öğren",
                   "description": "Çerez kullanımımız ve nasıl yönetileceği hakkında ayrıntılı bilgiye buradan ulaşabilirsiniz.",
                   "images": [
-                    "https://www.typescriptogren.com/images/cerez-politikasi-og.jpg"
+                    "https://www.typescriptogren.com/images/logo.png"
                   ]
                 }
               };
             
+
+
+
+
+                
+            case "/cerez-politikasi":
+              return{
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "Çerez Politikası",
+                "url": "https://www.typescriptogren.com/cerez-politikasi",
+                "description": "Çerez politikamız hakkında detaylı bilgi edinin. Kullanıcı deneyimini geliştirmek ve reklamları kişiselleştirmek amacıyla çerezleri nasıl kullandığımızı öğrenin.",
+                "breadcrumb": {
+                  "@type": "BreadcrumbList",
+                  "itemListElement": [
+                    {
+                      "@type": "ListItem",
+                      "position": 1,
+                      "name": "Ana Sayfa",
+                      "item": "https://www.typescriptogren.com"
+                    },
+                    {
+                      "@type": "ListItem",
+                      "position": 2,
+                      "name": "Çerez Politikası",
+                      "item": "https://www.typescriptogren.com/cerez-politikasi"
+                    }
+                  ]
+                }
+              }
+              
+
+
+
               case "/quiz":
                 return  {
-                    "@context": "https://schema.org",
-                    "@type": "Quiz",
-                    "name": "TypeScript Quizleri",
-                    "description": "TypeScript becerilerinizi geliştirmek ve ilerlemenizi görmek için çeşitli quizlere katılın. Her seviyeye uygun quizler mevcuttur.",
-                    "url": "https://your-website.com/quizler",
-                    "mainEntityOfPage": "https://your-website.com/quizler",
-                    "author": {
-                      "@type": "Person",
-                      "name": "Adınız Soyadınız",
-                      "url": "https://your-website.com"
-                    },
-                    "keywords": "TypeScript, quiz, yazılım geliştirme, test, eğitim, beceri geliştirme",
-                    "breadcrumb": {
-                      "@type": "BreadcrumbList",
-                      "itemListElement": [
-                        {
-                          "@type": "ListItem",
-                          "position": 1,
-                          "name": "Ana Sayfa",
-                          "item": "https://your-website.com"
-                        },
-                        {
-                          "@type": "ListItem",
-                          "position": 2,
-                          "name": "Quizler",
-                          "item": "https://your-website.com/quizler"
-                        }
-                      ]
-                    },
-                    "quiz": [
-                      {
-                        "@type": "Quiz",
-                        "name": "TypeScript Başlangıç Seviye Quiz",
-                        "url": "https://your-website.com/quizler/baslangic-seviye"
-                      },
-                      {
-                        "@type": "Quiz",
-                        "name": "TypeScript Orta Seviye Quiz",
-                        "url": "https://your-website.com/quizler/orta-seviye"
-                      },
-                      {
-                        "@type": "Quiz",
-                        "name": "TypeScript İleri Seviye Quiz",
-                        "url": "https://your-website.com/quizler/ileri-seviye"
-                      }
+                  "@context": "https://schema.org",
+                  "@type": "Quiz",
+                  "name": "TypeScript Quizleri",
+                  "description": "TypeScript becerilerinizi geliştirmek ve ilerlemenizi görmek için çeşitli quizlere katılın. Her seviyeye uygun quizler mevcuttur.",
+                  "url": "https://www.typescriptogren.com/quiz",
+                  "mainEntityOfPage": "https://www.typescriptogren.com/quiz",
+                  "author": {
+                    "@type": "Organization",
+                    "name": "TypeScript Öğren",
+                    "url": "https://www.typescriptogren.com"
+                  },
+                  "keywords": "TypeScript, quiz, yazılım geliştirme, test, eğitim, beceri geliştirme",
+                  "image": {
+                    "@type": "ImageObject",
+                    "url": "https://www.typescriptogren.com/images/logo.png",
+                    "width": 1200,
+                    "height": 630
+                  },
+                  "breadcrumb": {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                      { "@type": "ListItem", "position": 1, "name": "Ana Sayfa", "item": "https://www.typescriptogren.com" },
+                      { "@type": "ListItem", "position": 2, "name": "Quizler", "item": "https://www.typescriptogren.com/quiz" }
                     ]
-                  };
-                  
+                  },
+                  "hasPart": quizler.map((quiz) => ({
+                    "@type": "Quiz",
+                    "name": quiz.title,
+                    "url":  `https://www.typescriptogren.com/quiz/${quiz.slug}`
+                  }))
+                };
+                
                 
                   case "/blog":
                     return {
-                      "@context": "https://schema.org",
-                      "@type": "Blog",
-                      "name": "Blog Başlığı",
-                      "description": "Web gelişim, yazılım ve diğer teknolojiler hakkında içerikler bulabileceğiniz blog sayfası.",
-                      "url": "https://your-website.com/blog",
-                      "mainEntityOfPage": "https://your-website.com/blog",
-                      "author": {
-                        "@type": "Person",
-                        "name": "Adınız Soyadınız",
-                        "url": "https://your-website.com"
-                      },
-                      "keywords": "blog, yazılım, web geliştirme, teknoloji, eğitim, yazılım geliştirme",
-                      "breadcrumb": {
-                        "@type": "BreadcrumbList",
-                        "itemListElement": [
-                          {
-                            "@type": "ListItem",
-                            "position": 1,
-                            "name": "Ana Sayfa",
-                            "item": "https://your-website.com"
-                          },
-                          {
-                            "@type": "ListItem",
-                            "position": 2,
-                            "name": "Blog",
-                            "item": "https://your-website.com/blog"
-                          }
-                        ]
-                      },
-                      "blogPost": blogPosts.map((post) => ({
-                        "@type": "BlogPosting",
-                        "headline": post.title,
-                        "url": post.link,
+                        "@context": "https://schema.org",
+                        "@type": "Blog",
+                        "name": "Blog | TypeScript Öğren",
+                        "description": "Web gelişim, yazılım ve diğer teknolojiler hakkında içerikler bulabileceğiniz blog sayfası.",
+                        "url": "https://www.typescriptogren.com/blog",
+                        "mainEntityOfPage": "https://www.typescriptogren.com/blog",
                         "author": {
-                          "@type": "Person",
-                          "name": "Adınız Soyadınız"
+                          "@type": "Organization",
+                          "name": "TypeScript Öğren",
+                          "url": "https://www.typescriptogren.com"
                         },
-                        "datePublished": post.publishedAt,
-                        "description": post.description,
-                        "image": "https://your-website.com/path/to/image.jpg", // Opsiyonel: Her blog yazısına özel görsel ekleyebilirsiniz
+                        "keywords": "blog, yazılım, web geliştirme, teknoloji, eğitim, yazılım geliştirme",
+                        "breadcrumb": {
+                          "@type": "BreadcrumbList",
+                          "itemListElement": [
+                            {
+                              "@type": "ListItem",
+                              "position": 1,
+                              "name": "Ana Sayfa",
+                              "item": "https://www.typescriptogren.com"
+                            },
+                            {
+                              "@type": "ListItem",
+                              "position": 2,
+                              "name": "Blog",
+                              "item": "https://www.typescriptogren.com/blog"
+                            }
+                          ]
+                        },
+                        "blogPost": blogPosts.map((post) => ({
+                          "@type": "BlogPosting",
+                          "headline": post.title,
+                          "url": `https://www.typescriptogren.com/blog/${post.slug}`,
+                          "author": {
+                            "@type": "Organization",
+                            "name": "TypeScript Öğren",
+                            "url": "https://www.typescriptogren.com"
+                          },
+                          "datePublished": post.publishedAt,
+                          "description": post.description,
+                          "image": post.image || "https://www.typescriptogren.com/images/logo.png"
+                      
                       }))
                     };
 

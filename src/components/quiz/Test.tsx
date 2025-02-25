@@ -83,10 +83,10 @@ const Test: React.FC<TestProps> = ({ quizName }) => {
 
   return (
     <div className="max-w-xl p-4 mx-auto bg-white border-2 border-custom-gray rounded-sm">
-      <h1 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-center">{quiz.title} Testi</h1>
+      <h1 className="text-xl md:text-2xl font-bold mb-2 md:mb-4 text-center">TypeScript Quiz : {quiz.title} Testi</h1>
       <p className="text-md text-center mb-2 md:mb-6">Puan: <span className="font-bold text-blue-500">{puan}</span></p>
       <div className="mb-4 p-4 border-2 rounded-sm border-custom-blue bg-gray-200">
-        <p className="text-sm md:text-md font-semibold">{soru.soru}</p>
+        <h2 className="text-sm md:text-md font-semibold">{soru.soru}</h2>
         <div className="mt-2 flex flex-col gap-2">
           {soru.secenekler.map(secenek => {
             const isSelected = cevaplar[soru.id] === secenek;

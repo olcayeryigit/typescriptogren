@@ -3,38 +3,40 @@ import MainParagraph from '@/components/common/MainParagraph'
 import PageTitle from '@/components/common/PageTitle'
 import React from 'react'
 import QuizPage from '@/components/quiz/QuizPage'
-
 export const metadata: Metadata = {
-  title: 'TypeScript Quizleri | My Website',
+  title: 'TypeScript Quizleri | TypeScript Öğren',
   description: 'TypeScript becerilerinizi geliştirmek ve ilerlemenizi görmek için çeşitli quizlere katılın. Her seviyeye uygun quizler mevcuttur.',
   keywords: 'TypeScript, quiz, yazılım geliştirme, test, eğitim, beceri geliştirme',
-  authors: [{ name: 'Adınız Soyadınız', url: 'https://your-website.com' }],
+  authors: [{ name: 'TypeScript Öğren', url: 'https://www.typescriptogren.com' }], // Organizasyon olarak düzeltildi
   openGraph: {
-    title: 'TypeScript Quizleri | My Website',
+    title: 'TypeScript Quizleri | TypeScript Öğren',
     description: 'TypeScript becerilerinizi geliştirmek ve ilerlemenizi görmek için çeşitli quizlere katılın.',
     type: 'website',
-    url: 'https://your-website.com/quizler',
+    url: 'https://www.typescriptogren.com/quiz',
     images: [
       {
-        url: 'https://your-website.com/path_to_image.jpg', // Mutlaka tam URL olmalı
-        width: 800,
-        height: 600,
-        alt: 'Açıklama yazısı', // Opsiyonel
-      },
-    ],  },
+        url: 'https://www.typescriptogren.com/images/logo.png', // SEO uyumlu bir görsel URL'si
+        width: 1200,
+        height: 630,
+        alt: 'TypeScript Quizleri - Quiz çözerek kendinizi test edin.'
+      }
+    ]
+  },
   twitter: {
     card: 'summary_large_image',
-    title: 'TypeScript Quizleri | My Website',
+    title: 'TypeScript Quizleri | TypeScript Öğren',
     description: 'TypeScript becerilerinizi geliştirmek ve ilerlemenizi görmek için çeşitli quizlere katılın.',
     images: [
       {
-        url: 'https://your-website.com/path_to_image.jpg', // Mutlaka tam URL olmalı
-        width: 800,
-        height: 600,
-        alt: 'Açıklama yazısı', // Opsiyonel
-      },
-    ],  },
-}
+        url: 'https://www.typescriptogren.com/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'TypeScript Quizleri - Quiz çözerek kendinizi test edin.'
+      }
+    ]
+  }
+};
+
 
 const page = () => {
   return (

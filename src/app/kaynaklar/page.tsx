@@ -8,51 +8,50 @@ import React from "react";
 
 // SEO Metadata
 export const metadata: Metadata = {
-  title: "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
-  description:
-    "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
-  keywords: [
+  "title": "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
+  "description": "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
+  "keywords": [
     "TypeScript kaynakları", "TypeScript öğren", "TypeScript kursları",
-    "JavaScript geliştirme", "TypeScript dökümantasyon", "TypeScript eğitimleri",
-    "TypeScript resmi kaynakları", "Frontend geliştirme", "Web geliştirme", 
-    "TypeScript en iyi kaynaklar"
-  ], alternates: {
-    canonical: "https://www.typescriptogren.com/kaynaklar"
-    },
-  
-  openGraph: {
-    title: "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
-    description:
-      "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
-    url: "https://www.typescriptogren.com/kaynaklar",
-    siteName: "TypeScript Öğren",
-    images: [
-      {
-        url: "https://www.typescriptogren.com/images/kaynaklar-og.jpg",
-        width: 1200,
-        height: 630,
-        alt: "TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
-      },
-    ],
-    locale: "tr_TR",
-    type: "website",
+    "JavaScript geliştirme", "TypeScript dokümantasyon", "TypeScript eğitimleri",
+    "TypeScript resmi kaynakları", "Frontend geliştirme", "Web geliştirme",
+    "En iyi TypeScript kaynakları", "Ücretsiz TypeScript kursları"
+  ],
+  "alternates": {
+    "canonical": "https://www.typescriptogren.com/kaynaklar"
   },
-  twitter: {
-    card: "summary_large_image",
-    site: "@typescriptogren",
-    creator: "@typescriptogren",
-    title: "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
-    description:
-      "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
-      images: [
-        {
-          url: 'https://your-website.com/path_to_image.jpg', // Mutlaka tam URL olmalı
-          width: 800,
-          height: 600,
-          alt: 'Açıklama yazısı', // Opsiyonel
-        },
-      ],  },
+  "openGraph": {
+    "title": "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
+    "description": "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
+    "url": "https://www.typescriptogren.com/kaynaklar",
+    "siteName": "TypeScript Öğren",
+    "images": [
+      {
+        "url": "https://www.typescriptogren.com/images/logo.png",
+        "width": 1200,
+        "height": 630,
+        "alt": "TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler"
+      }
+    ],
+    "locale": "tr_TR",
+    "type": "website"
+  },
+  "twitter": {
+    "card": "summary_large_image",
+    "site": "@typescriptogren",
+    "creator": "@typescriptogren",
+    "title": "En İyi TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler",
+    "description": "TypeScript öğrenmek isteyenler için en iyi kaynakları keşfedin. Resmi dokümantasyon, GitHub deposu, bloglar ve ücretsiz kurslarla kendinizi geliştirin.",
+    "images": [
+      {
+        "url": "https://www.typescriptogren.com/images/logo.png",
+        "width": 800,
+        "height": 600,
+        "alt": "TypeScript Kaynakları – Resmi Dokümantasyon ve Eğitimler"
+      }
+    ]
+  }
 };
+
 
 // TypeScript Kaynakları
 const resources = [

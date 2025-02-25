@@ -17,25 +17,25 @@ export async function generateMetadata(
   const blog = getBlogPostBySlug(slug);
 
   return {
-    title: blog?.title || 'Blog Post',
-    description: blog?.description|| 'Bu blog yazısını okuyun.',
+    title: blog?.title || "TypeScript Öğren - Blog Post",
+    description: blog?.description || "Bu blog yazısını okuyun.",
     alternates: {
       canonical: `https://www.typescriptogren.com/blog/${slug}`
-      },
+    },
     openGraph: {
-      title: blog?.title || 'Blog Post',
-      description: blog?.description|| 'Bu blog yazısını okuyun.',
-      url: `https://seninsiten.com/blog/${slug}`,
-      type: 'article',
-      images: blog?.image ? [{ url: blog.image, alt: blog.title }] : [],
+      title: blog?.title || "TypeScript Öğren - Blog Post",
+      description: blog?.description || "Bu blog yazısını okuyun.",
+      url: `https://www.typescriptogren.com/blog/${slug}`,
+      type: "article",
+      images: blog?.image ? [{ url: blog.image, alt: blog.title }] : []
     },
     twitter: {
-      card: 'summary_large_image',
-      title: blog?.title || 'Blog Post',
-      description: blog?.description || 'Bu blog yazısını okuyun.',
-      images: blog?.image ? [blog.image] : [],
-    },
-  }
+      card: "summary_large_image",
+      title: blog?.title || "TypeScript Öğren - Blog Post",
+      description: blog?.description || "Bu blog yazısını okuyun.",
+      images: blog?.image ? [blog.image] : []
+    }
+  }  
 }
 export default async function Page({ params }: Props) {
   // Burada params'ı çözümleyip BlogPost'a gönderiyoruz

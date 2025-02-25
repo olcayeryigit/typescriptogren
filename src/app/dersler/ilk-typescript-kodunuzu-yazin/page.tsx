@@ -8,47 +8,17 @@ import { CircleCheck, Code } from "lucide-react";
 import React from "react";
 import Output from "@/components/common/Output";
 
-export const metadata: Metadata = {
-  title: "İlk TypeScript Kodunuzu Yazın",
-  description:
-    "Bu rehberde, TypeScript ile ilk kodunuzu nasıl yazacağınızı, derleyip çalıştıracağınızı adım adım öğreneceksiniz.",
-  keywords: [
-    "TypeScript",
-    "JavaScript",
-    "TypeScript dersleri",
-    "TypeScript başlangıç",
-    "TypeScript öğrenme",
-    "tsc",
-    "TypeScript nedir",
-  ],
-  alternates: {
-    canonical: "https://www.typescriptogren.com/dersler/ilk-typescript-kodunuzu-yazin"
-    },
+export const metadata: Metadata ={
+  title: "İlk TypeScript Kodunuzu Yazın | TypeScript Öğrenin",
+  description: "TypeScript ile ilk programınızı yazın ve temel sözdizimini keşfedin.",
+  keywords: ["İlk TypeScript kodu", "TypeScript örnekleri", "TypeScript başlangıç", "Web geliştirme"],
+  alternates: { canonical: "https://www.typescriptogren.com/dersler/ilk-typescript-kodunuzu-yazin" },
   openGraph: {
-    title: "İlk TypeScript Kodunuzu Yazın",
-    description:
-      "TypeScript ile ilk programınızı yazın ve çalıştırın! Adım adım rehberimizi takip edin.",
+    title: "İlk TypeScript Kodunuzu Yazın | TypeScript Öğrenin",
+    description: "TypeScript kullanarak ilk programınızı yazın ve temel konseptleri öğrenin.",
     url: "https://www.typescriptogren.com/dersler/ilk-typescript-kodunuzu-yazin",
-    type: "article",
-    images: [
-      {
-        url: "https://seninsiten.com/static/images/typescript-guide.png",
-        alt: "TypeScript öğrenme rehberi",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "İlk TypeScript Kodunuzu Yazın",
-    description:
-      "TypeScript'e giriş yapmak isteyenler için adım adım ilk kod yazma rehberi!",
-    images: ["https://seninsiten.com/static/images/typescript-guide.png"],
-  },
-  authors: [{ name: "Olcay", url: "https://seninsiten.com" }],
-  robots: {
-    index: true,
-    follow: true,
-  },
+    type: "article"
+  }
 };
 
 const IlkTypeScriptKodu = () => {

@@ -13,40 +13,45 @@ const Header: React.FC = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
+  const menuItems = [
+    { href: "/", label: "Anasayfa" },
+    { href: "/dersler", label: "Dersler" },
+    { href: "/quiz", label: "Quizler" },
+    { href: "/kaynaklar", label: "Kaynaklar" },
+    { href: "/blog", label: "Blog" },
+    { href: "/iletisim", label: "İletişim" },
+    { href: "/sik-sorulan-sorular", label: "SSS" }
+  ];
   return (
     <header className="bg-custom-gray  border-b border-white shadow-md" role="banner">
       <div className="container mx-auto flex justify-between items-center px-6 md:px-12 py-4  ">
         {/* Logo */}
-        <Link href="/" className="logo text-2xl font-bold text-white hover:text-custom-blue-4 transition duration-300" aria-label="TypeScript Öğren Anasayfa">
+        <Link href="/" className="logo text-2xl font-bold text-white hover:text-custom-blue-4 transition duration-300" aria-label="TypeScript Öğren Anasayfa"     title="TypeScript Öğren"
+        >
           typescriptogren<span className="text-custom-blue">.com</span>
         </Link>
         
         {/* Navigasyon Menüsü */}
-        <nav>
-          <ul className="hidden lg:flex space-x-8 text-sm font-medium text-gray-100">
-            <li>
-              <Link href="/" className="hover:text-white transition" aria-label="Ana Sayfa">Anasayfa</Link>
-            </li>
-            <li>
-              <Link href="/dersler" className="hover:text-white transition" aria-label="Dersler Sayfası">Dersler</Link>
-            </li>
-            <li>
-              <Link href="/quiz" className="hover:text-white transition" aria-label="Quizler Sayfası">Quizler</Link>
-            </li>
-            <li>
-              <Link href="/kaynaklar" className="hover:text-white transition" aria-label="Kaynaklar Sayfası">Kaynaklar</Link>
-            </li>
-            <li>
-              <Link href="/blog" className="hover:text-white transition" aria-label="Blog Sayfası">Blog</Link>
-            </li>
-            <li>
-              <Link href="/iletisim" className="hover:text-white transition" aria-label="İletişim Sayfası">İletişim</Link>
-            </li>
-            <li>
-              <Link href="/sik-sorulan-sorular" className="hover:text-white transition" aria-label="SSS Sayfası">SSS</Link>
-            </li>
-          </ul>
+        <nav aria-label="Ana Menü" className="flex justify-center items-center">
+
+   
+
+<ul className="hidden lg:flex space-x-8 text-sm font-medium text-gray-100 ">
+  {menuItems.map((item, index) => (
+    <li key={index}>
+      <Link
+        href={item.href}
+        className="hover:text-white transition"
+        aria-label={`${item.label} Sayfası`}
+        title={`${item.label} - TypeScript Öğren`}
+
+      >
+        {item.label}
+      </Link>
+    </li>
+  ))}
+</ul>;
+
         </nav>
 
         {/* Sosyal Medya Bağlantıları */}
@@ -93,7 +98,7 @@ const Header: React.FC = () => {
   className={`lg:hidden ${isMenuOpen ? "block" : "hidden"} bg-custom-gray border-t border-gray-700 transform transition-all duration-500 ease-in-out`}
   role="menu"
 >
-  <ul className="text-white text-center text-lg space-y-4 ">
+  <ul className="text-white text-center text-lg space-y-4  ">
     {/* Menu item */}
     {[
       { href: "/", label: "Anasayfa" },
@@ -104,11 +109,13 @@ const Header: React.FC = () => {
       { href: "/iletisim", label: "İletişim" },
       { href: "/sik-sorulan-sorular", label: "SSS" },
     ].map((item, index) => (
-      <li key={index} className="relative group">
+      <li key={index} className="relative group" role="menuitem" >
         <Link
           href={item.href}
           className="block py-2 px-6 rounded-md hover:text-custom-blue-4 transition-all duration-300 transform  "
           aria-label={`${item.label} Sayfası`}
+          title={`${item.label} - TypeScript Öğren`}
+
         >
           {item.label}
         </Link>

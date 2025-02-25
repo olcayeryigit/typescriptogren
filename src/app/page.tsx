@@ -5,6 +5,7 @@ import PageTitle from "@/components/common/PageTitle";
 import MainParagraph from "@/components/common/MainParagraph";
 import { Book, ListChecks, Layers, PenSquare, HelpCircle, Terminal, Globe } from "lucide-react";
 
+
 export const metadata: Metadata = {
   title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
   description:
@@ -15,8 +16,8 @@ export const metadata: Metadata = {
     "Kodlama öğrenme", "React ile TypeScript", "Node.js ve TypeScript", "TypeScript projeleri"
   ],
   alternates: {
-    canonical: "https://www.typescriptogren.com/"
-    },
+    canonical: "https://www.typescriptogren.com/",
+  },
   openGraph: {
     title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
     description:
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     siteName: "TypeScript Öğren",
     images: [
       {
-        url: "https://www.typescriptogren.com/images/og-image.jpg",
+        url: "https://www.typescriptogren.com/images/logo.png",
         width: 1200,
         height: 630,
         alt: "TypeScript Öğren – Modern JavaScript ve Güvenli Kodlama",
@@ -41,15 +42,17 @@ export const metadata: Metadata = {
     title: "TypeScript Öğren – Modern JavaScript ile Tip Güvenliği ve Performans",
     description:
       "TypeScript öğrenmeye başla! Modern JavaScript’in avantajlarını keşfet, güçlü ve güvenli kod yaz.",
-      images: [
-        {
-          url: 'https://your-website.com/path_to_image.jpg', // Mutlaka tam URL olmalı
-          width: 800,
-          height: 600,
-          alt: 'Açıklama yazısı', // Opsiyonel
-        },
-      ],  },
+    images: [
+      {
+        url: "https://www.typescriptogren.com/images/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "TypeScript Öğren – Modern JavaScript ve Güvenli Kodlama",
+      },
+    ],
+  },
 };
+
 
 const cardData = [
   { href: "/dersler", icon: <Book size={40} />, title: "Dersler", description: "TypeScript diline dair temel ve ileri seviye derslerle, dilin tüm temellerini öğrenin." },

@@ -1,9 +1,6 @@
 "use client";
 import { useEffect, useState } from 'react'
-import { getBlogPostBySlug } from '@/data/blogPosts'
-import PageTitle from '../common/PageTitle';
-import MainParagraph from '../common/MainParagraph';
-import Subtitle from '../common/SubTitle';
+import { getBlogPostBySlug, formatDateToTurkish } from '@/data/blogPosts'
 import Image from 'next/image';
 
 type BlogPostProps = {
@@ -30,7 +27,8 @@ export default function BlogPost({ slug }: BlogPostProps) {
   {/* Kapak Görseli */}
   <div className="w-full h-64 md:h-96 relative">
     <Image
-      src="/images/logo.png"
+      src={blogPost.image}
+
       alt="Blog Cover"
       fill
       className="object-cover rounded-lg"
@@ -56,23 +54,16 @@ export default function BlogPost({ slug }: BlogPostProps) {
   </div>
 
   {/* Yazar Bilgisi (İsteğe Bağlı) */}
-  <div className="flex items-center justify-between items-center mt-12 border-t pt-6">
+  <div className="flex items-center justify-between items-center mt-12 border-t pt-4">
    <div className='flex items-center gap-4'>
-    <Image
-      src="/images/logo.png"
-      alt="Author"
-      width={50}
-      height={50}
-      className=" object-contain"
-    />
+
     <div>
-      <p className="text-sm md:text-md font-semibold">Yazar: TypeScriptOgren</p>
-      <p className="text-sm text-gray-500">Teknoloji & Yazılım Yazarı</p>
+      <p className="text-sm md:text-md font-semibold">Yazar: www.typescriptogren.com</p>
     </div>
 
    
-    </div>  <p className="text-md md:text-lg text-gray-500 mt-2">
-      {blogPost.publishedAt} 
+    </div>  <p className="text-sm md:text-md text-gray-500 ">
+{    formatDateToTurkish(blogPost.publishedAt) }
     </p>
   </div>
 </div>

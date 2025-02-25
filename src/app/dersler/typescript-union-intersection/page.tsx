@@ -7,16 +7,14 @@ import SummaryBox from "@/components/common/SummaryBox";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "TypeScript Union ve Intersection Types | TypeScript Öğrenin",
-  description: "TypeScript'te Union ve Intersection Types ile veri modellerini daha esnek hale getirmeyi öğrenin. Farklı türleri bir araya getirerek güçlü tip sistemleri oluşturun.",
-  keywords: ["TypeScript", "Union Types", "Intersection Types", "TypeScript Type", "TypeScript Öğren", "Frontend Geliştirme"],
-  alternates: {
-    canonical: "https://www.typescriptogren.com/dersler/typescript-union-intersection"
-    },
+  title: "TypeScript Union ve Intersection Types | Tipleri Birleştirme",
+  description: "TypeScript'te Union ve Intersection Types kullanarak daha esnek veri yapıları oluşturun.",
+  keywords: ["TypeScript union types", "TypeScript intersection types", "TypeScript tip güvenliği", "TypeScript advanced"],
+  alternates: { canonical: "https://www.typescriptogren.com/dersler/typescript-union-intersection" },
   openGraph: {
-    title: "TypeScript Union ve Intersection Types | TypeScript Öğrenin",
-    description: "TypeScript Union ve Intersection Types ile değişkenlerinizi nasıl daha esnek hale getireceğinizi öğrenin. Pratik örneklerle açıklamalar!",
-    url: "https://typescriptogren.com/typescript-union-intersection",
+    title: "TypeScript Union ve Intersection Types | Tipleri Birleştirme",
+    description: "Union ve Intersection Types ile TypeScript projelerinizde daha güçlü veri modelleri oluşturun.",
+    url: "https://www.typescriptogren.com/dersler/typescript-union-intersection",
     type: "article"
   }
 };

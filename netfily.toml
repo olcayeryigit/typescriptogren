@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "http://typescriptogren.com/*"
-  to = "https://www.typescriptogren.com/:splat"
-  status = 301
-  force = true

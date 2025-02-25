@@ -4,38 +4,39 @@ import PageTitle from '@/components/common/PageTitle'
 import BlogPage from '@/components/blog/BlogPage'
 
 export const metadata: Metadata = {
-  title: 'Blog | My Website',
+  title: 'Blog | TypeScript Öğren',
   description: 'Blog sayfasında en güncel yazılarımızı bulabilirsiniz.',
-  keywords: 'blog, yazılar, teknoloji, yazılım, geliştirici',
-  authors: [{ name: 'Adınız Soyadınız', url: 'https://your-website.com' }], // authors dizisine yazar nesnesi ekliyoruz
+  keywords: 'blog, yazılım, teknoloji, geliştirici, web geliştirme',
+  authors: [{ name: 'Adınız Soyadınız', url: 'https://www.typescriptogren.com' }],
   openGraph: {
-    title: 'Blog | My Website',
+    title: 'Blog | TypeScript Öğren',
     description: 'Blog sayfasında en güncel yazılarımızı bulabilirsiniz.',
     type: 'website',
-    url: 'https://your-website.com/blog',
+    url: 'https://www.typescriptogren.com/blog',
     images: [
       {
-        url: 'https://your-website.com/path_to_image.jpg', // Mutlaka tam URL olmalı
+        url: 'https://www.typescriptogren.com/images/logo.png', // Varsayılan blog resmi
         width: 800,
         height: 600,
-        alt: 'Açıklama yazısı', // Opsiyonel
+        alt: 'Blog sayfası görseli',
       },
     ],
-    },
+  },
   twitter: {
     card: 'summary_large_image',
-    title: 'Blog | My Website',
+    title: 'Blog | TypeScript Öğren',
     description: 'Blog sayfasında en güncel yazılarımızı bulabilirsiniz.',
     images: [
       {
-        url: 'https://your-website.com/path_to_image.jpg', // Mutlaka tam URL olmalı
+        url: 'https://www.typescriptogren.com/images/logo.png',
         width: 800,
         height: 600,
-        alt: 'Açıklama yazısı', // Opsiyonel
+        alt: 'Blog sayfası görseli',
       },
     ],
   },
 }
+
 
 const page = () => {
   return (

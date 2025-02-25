@@ -9,15 +9,13 @@ import Output from "@/components/common/Output";
 
 export const metadata: Metadata = {
   title: "TypeScript Veri Türleri | TypeScript Öğrenin",
-  description: "TypeScript'in temel veri türlerini öğrenin: String, Number, Boolean, Array, Tuple ve Enum ile daha güvenli kod yazın.",
-  keywords: ["TypeScript", "TypeScript Veri Türleri", "String", "Number", "Boolean", "Array", "Tuple", "Enum", "TypeScript Öğren"],
-  alternates: {
-    canonical: "https://www.typescriptogren.com/dersler/typescript-veri-turleri"
-    },
+  description: "TypeScript'in güçlü tip sistemi ile temel veri türlerini keşfedin ve daha güvenli kod yazın.",
+  keywords: ["TypeScript veri türleri", "TypeScript string", "TypeScript number", "TypeScript boolean", "Statik tipleme"],
+  alternates: { canonical: "https://www.typescriptogren.com/dersler/typescript-veri-turleri" },
   openGraph: {
     title: "TypeScript Veri Türleri | TypeScript Öğrenin",
-    description: "TypeScript ile veri türlerini öğrenerek güçlü ve güvenli kod yazmayı öğrenin. String, Number, Boolean, Array, Tuple ve Enum gibi veri türleri hakkında bilgi edinin.",
-    url: "https://typescriptogren.com/typescript-veri-turleri",
+    description: "TypeScript veri türleriyle kodunuzu daha güvenli hale getirin. String, number, boolean ve daha fazlasını öğrenin.",
+    url: "https://www.typescriptogren.com/dersler/typescript-veri-turleri",
     type: "article"
   }
 };

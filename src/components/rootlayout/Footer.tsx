@@ -15,7 +15,7 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Navigasyon Menüsü */}
-        <nav className="mb-8">
+        <nav className="mb-8"  aria-label="Footer Menü">
    
   <ul className="flex flex-wrap justify-center gap-6 text-sm text-gray-300">
     {[
@@ -51,9 +51,9 @@ const Footer: React.FC = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="text-custom-gray text-2xl hover:text-custom-blue-2 border-2 hover:border-custom-blue-2  transition bg-white rounded-md p-1"
-            aria-label="Twitter"
+            aria-label="TypeScript Öğren X Twitter Hesabı"
 
-            title="TypeScript Öğren Twitter Sayfası"
+            title="TypeScript Öğren Twitter Sayfası" 
 
           >
             <FaXTwitter />
@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className="text-custom-gray text-2xl hover:text-custom-blue-2 border-2 hover:border-custom-blue-2  transition bg-white rounded-md p-1"
             title="TypeScript Öğren İnstagram Sayfası"
-            aria-label="Instagram"
+            aria-label="TypeScript Öğren Twitter Hesabı"
 
           >
             <FaInstagram />

@@ -4,6 +4,7 @@ import PageTitle from "@/components/common/PageTitle";
 import React from "react";
 import FAQItem from "@/components/sss/FAQItem";
 import MainParagraph from "@/components/common/MainParagraph";
+import faqs from "@/data/Sorular";
 
 export const metadata: Metadata = {
   title: "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",
@@ -14,18 +15,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: "TypeScript Sıkça Sorulan Sorular | TypeScript Öğren",
     description: "TypeScript ile ilgili en yaygın sorular ve cevaplar burada! Hemen öğrenmeye başla.",
-    url: "https://typescriptogren.com/sik-sorulan-sorular",
+    url: "https://www.typescriptogren.com/sik-sorulan-sorular",
     siteName: "TypeScript Öğren",
     type: "website",
   },
+  keywords: [
+    "TypeScript sıkça sorulan sorular", "TypeScript nedir", "TypeScript mi JavaScript mi",
+    "TypeScript avantajları", "TypeScript zor mu", "TypeScript kullanmalı mıyım"
+  ],  
 };
 
-const faqs = [
-  { question: "TypeScript nedir?", answer: "TypeScript, Microsoft tarafından geliştirilen ve JavaScript'in üzerine inşa edilen, statik tür sistemine sahip bir programlama dilidir." },
-  { question: "JavaScript ile TypeScript arasındaki fark nedir?", answer: "JavaScript dinamik türlere sahiptir, TypeScript ise statik tür kontrolü yaparak hataları erken aşamada yakalamayı sağlar." },
-  { question: "TypeScript zor mu?", answer: "Eğer JavaScript biliyorsanız, TypeScript öğrenmek çok zor değildir. Statik tipler ve derleyici hatalarına alışmak başlangıçta zor gelebilir, ancak uzun vadede yazılım geliştirmeyi kolaylaştırır." },
-  { question: "TypeScript kullanmalı mıyım?", answer: "Eğer büyük ve ölçeklenebilir bir proje yapıyorsanız veya hataları önceden yakalamak istiyorsanız, TypeScript kullanmanız önerilir." },
-];
+
 
 const FAQPage = () => {
  

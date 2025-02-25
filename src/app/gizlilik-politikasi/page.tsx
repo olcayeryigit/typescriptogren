@@ -1,19 +1,18 @@
 import { Metadata } from "next";
-import Link from "next/link";
 import React from "react";
 
 export const metadata: Metadata = {
-  title: "Gizlilik Politikası | TypeScript Öğren",
+  title: "Gizlilik Politikası - TypeScript Öğren | Kişisel Veriler ve Çerez Kullanımı",
   description:
-    "TypeScript Öğren olarak kullanıcı verilerinin gizliliğini önemsiyoruz. Verilerin nasıl işlendiği, çerezler, güvenlik önlemleri ve gizlilik politikası hakkında bilgi edinin.",
+    "Kullanıcı verilerinin gizliliğini önemsiyoruz. TypeScript Öğren'de çerez kullanımı, kişisel veri işleme, güvenlik önlemleri ve gizlilik politikamız hakkında detaylı bilgi edinin.",
     alternates: {
       canonical: "https://www.typescriptogren.com/gizlilik-politikasi"
       },
   openGraph: {
-    title: "Gizlilik Politikası | TypeScript Öğren",
+    title: "Gizlilik Politikası - TypeScript Öğren | Kişisel Veriler ve Çerez Kullanımı",
     description:
-      "Kullanıcı verilerinin nasıl işlendiği, çerez kullanımı, güvenlik önlemleri ve gizlilik politikamız hakkında detaylı bilgi alın.",
-    url: "https://typescriptogren.com/gizlilik-politikasi",
+      "Kullanıcı verilerinin gizliliğini önemsiyoruz. TypeScript Öğren'de çerez kullanımı, kişisel veri işleme, güvenlik önlemleri ve gizlilik politikamız hakkında detaylı bilgi edinin.",
+    url: "https://www.typescriptogren.com/gizlilik-politikasi",
     siteName: "TypeScript Öğren",
     type: "website",
   },
@@ -22,13 +21,13 @@ export const metadata: Metadata = {
 
 
 const GizlilikPolitikasi = () => {
-  return (
-    <>
-   
+  return (   
 
    <div className="container mx-auto py-4 px-4 md:py-6">
   <div className="bg-white border p-6">
-    <h1 className="text-2xl md:text-3xl font-bold text-custom-blue mb-4">Gizlilik Politikası</h1>
+    <h1 className="text-2xl md:text-3xl font-bold text-custom-blue mb-4">Gizlilik Politikası - TypeScript Öğren | Kişisel Veriler ve Çerez Kullanımı
+
+</h1>
     <p className="text-base md:text-lg text-gray-700 mb-4">
       Bu web sitesi, kullanıcı gizliliğini korumayı taahhüt eder. Toplanan veriler, kullanım amaçları ve haklarınız hakkında
       detaylı bilgiyi aşağıda bulabilirsiniz.
@@ -88,7 +87,7 @@ const GizlilikPolitikasi = () => {
 </div>
 
 
-    </>
+
   );
 };
 

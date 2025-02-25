@@ -8,45 +8,16 @@ import React from "react";
 import MainParagraph from "@/components/common/MainParagraph";
 
 export const metadata: Metadata = {
-  title: "TypeScript Kurulumu ve İlk Proje",
-  description:
-    "Bilgisayarınıza TypeScript'i nasıl kuracağınızı ve ilk projenizi nasıl oluşturacağınızı adım adım öğrenin.",
-  keywords: [
-    "TypeScript kurulumu",
-    "TypeScript nasıl yüklenir",
-    "TypeScript proje başlatma",
-    "tsc",
-    "npm install -g typescript",
-    "TypeScript başlangıç",
-  ],
-  alternates: {
-    canonical: "https://www.typescriptogren.com/dersler/typescript-kurulumu"
-    },
+  title: "TypeScript Kurulumu | Adım Adım Rehber",
+  description: "TypeScript'i bilgisayarınıza nasıl kuracağınızı ve ilk projenizi nasıl başlatacağınızı öğrenin.",
+  keywords: ["TypeScript kurulumu", "TypeScript yükleme", "TypeScript başlangıç", "Node.js ile TypeScript", "Web geliştirme"],
+  alternates: { canonical: "https://www.typescriptogren.com/dersler/typescript-kurulumu" },
   openGraph: {
-    title: "TypeScript Kurulumu ve İlk Proje",
-    description:
-      "TypeScript'i nasıl yükleyip ilk projenizi başlatacağınızı adım adım öğrenin.",
-    url: "https://seninsiten.com/typescript-kurulumu",
-    type: "article",
-    images: [
-      {
-        url: "https://seninsiten.com/static/images/typescript-install.png",
-        alt: "TypeScript kurulumu rehberi",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "TypeScript Kurulumu ve İlk Proje",
-    description:
-      "TypeScript'i yükleyin, proje başlatın ve TypeScript kodlarını çalıştırın. Adım adım rehber!",
-    images: ["https://seninsiten.com/static/images/typescript-install.png"],
-  },
-  authors: [{ name: "Olcay", url: "https://seninsiten.com" }],
-  robots: {
-    index: true,
-    follow: true,
-  },
+    title: "TypeScript Kurulumu | Adım Adım Rehber",
+    description: "TypeScript'in nasıl kurulacağını adım adım öğrenin ve ilk TypeScript projenizi oluşturun.",
+    url: "https://www.typescriptogren.com/dersler/typescript-kurulumu",
+    type: "article"
+  }
 };
 
 const TypeScriptKurulumu = () => {

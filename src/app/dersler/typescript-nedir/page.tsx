@@ -11,9 +11,7 @@ export const metadata: Metadata = {
   title: "TypeScript Nedir? | TypeScript Öğrenin",
   description: "TypeScript'in ne olduğunu, özelliklerini ve JavaScript'ten farklarını keşfedin. Statik tipleme ve modern JavaScript desteği ile kod kalitenizi artırın.",
   keywords: ["TypeScript", "TypeScript nedir", "JavaScript vs TypeScript", "Statik Tipleme", "Frontend", "Web Geliştirme"],
-  alternates: {
-    canonical: "https://www.typescriptogren.com/dersler/typescript-nedir"
-    },
+  alternates: { canonical: "https://www.typescriptogren.com/dersler/typescript-nedir" },
   openGraph: {
     title: "TypeScript Nedir? | TypeScript Öğrenin",
     description: "TypeScript, JavaScript'in güçlü bir süper setidir. Statik tipleme, ES6+ desteği ve okunabilir kod avantajlarıyla projelerinizi daha sağlam hale getirin.",

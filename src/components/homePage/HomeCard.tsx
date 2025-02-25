@@ -28,13 +28,24 @@ const HomeCard: React.FC<HomeProps> = ({ cardData }) => {
             rel={card.isExternal ? "noopener noreferrer" : undefined}
           >
             <div className='mb-2  md:mb-0 flex justify-start items-center  gap-4 md:gap-1 md:flex-col'>
-   <div className="md:mx-auto w-10 h-10 md:w-12 md:h-12 flex items-center justify-center p-1.5 group-hover:text-white transition group-hover:bg-custom-blue rounded-full bg-white text-black" aria-label={`İkon: ${card.title}`}>
-              {card.icon}
-            </div>
+            <div
+  className="md:mx-auto w-10 h-10 md:w-12 md:h-12 flex items-center justify-center p-1.5 
+             group-hover:text-white transition group-hover:bg-custom-blue rounded-full bg-white text-black"
+  aria-label={`İkon: ${card.title}`}
+  role="img"
+>
+  {card.icon}
+</div>
+
             <h2 className="text-lg md:text-xl font-semibold group-hover:text-custom-blue text-black">{card.title}</h2>
           </div>
          
             <p className="mt-1 text-sm md:text-md text-start md:text-center group-hover:text-custom-gray text-white">{card.description}</p>
+
+            <p className="mt-1 text-sm md:text-md underline group-hover:text-custom-blue">
+  Daha fazla bilgi için  tıklayın
+</p>
+
           </Link>
         ))}
       </div>
