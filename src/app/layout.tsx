@@ -4,6 +4,7 @@ import Header from "../components/rootlayout/Header";
 import React from 'react';
 import Footer from "@/components/rootlayout/Footer";
 import JsonLd from "@/components/rootlayout/JsonLd";
+import Script from "next/script";
 
 // Inter fontunu 400 ağırlığında alıyoruz
 const inter = Inter({
@@ -20,6 +21,25 @@ export default function RootLayout({
   return (
     <html lang="tr">      
       <head>
+           {/* Google Analytics */}
+           <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-YXBQ4L57GD"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-YXBQ4L57GD', {
+                page_path: window.location.pathname,
+              });
+            `,
+          }}
+        />
          <JsonLd /> {/* JSON-LD verisi head içinde yer alacak */}
       </head>
       <body className={`${inter.variable} antialiased`}>
