@@ -40,6 +40,11 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4429036065688553"
+            crossOrigin="anonymous"
+          ></Script>
          <JsonLd /> {/* JSON-LD verisi head içinde yer alacak */}
       </head>
       <body className={`${inter.variable} antialiased`}>
